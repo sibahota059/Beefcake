@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		945227131A11048600B04DB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945227121A11048600B04DB8 /* Images.xcassets */; };
 		94E330D01A10FB8F00635208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E330CF1A10FB8F00635208 /* AppDelegate.swift */; };
 		94E330D71A10FB8F00635208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E330D51A10FB8F00635208 /* Main.storyboard */; };
-		94E330D91A10FB8F00635208 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E330D81A10FB8F00635208 /* Images.xcassets */; };
 		94E330DC1A10FB8F00635208 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E330DA1A10FB8F00635208 /* LaunchScreen.xib */; };
 		94E330E81A10FB8F00635208 /* BeefcakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E330E71A10FB8F00635208 /* BeefcakeTests.swift */; };
 		94E330F21A10FBA300635208 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E330F11A10FBA300635208 /* MapKit.framework */; };
@@ -26,11 +26,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		945227121A11048600B04DB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		94E330CA1A10FB8F00635208 /* Beefcake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beefcake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E330CE1A10FB8F00635208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E330CF1A10FB8F00635208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94E330D61A10FB8F00635208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		94E330D81A10FB8F00635208 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		94E330DB1A10FB8F00635208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		94E330E11A10FB8F00635208 /* BeefcakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeefcakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E330E61A10FB8F00635208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			children = (
 				94E330CF1A10FB8F00635208 /* AppDelegate.swift */,
 				94E330D51A10FB8F00635208 /* Main.storyboard */,
-				94E330D81A10FB8F00635208 /* Images.xcassets */,
+				945227121A11048600B04DB8 /* Images.xcassets */,
 				94E330DA1A10FB8F00635208 /* LaunchScreen.xib */,
 				94E330CD1A10FB8F00635208 /* Supporting Files */,
 			);
@@ -202,9 +202,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945227131A11048600B04DB8 /* Images.xcassets in Resources */,
 				94E330D71A10FB8F00635208 /* Main.storyboard in Resources */,
 				94E330DC1A10FB8F00635208 /* LaunchScreen.xib in Resources */,
-				94E330D91A10FB8F00635208 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
