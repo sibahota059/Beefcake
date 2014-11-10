@@ -16,10 +16,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="AxP-jd-c56" kind="relationship" relationship="viewControllers" id="6T3-He-adG"/>
-                        <segue destination="0Qh-IF-jqB" kind="relationship" relationship="viewControllers" id="u8h-Km-f6h"/>
-                        <segue destination="TTG-cA-bIg" kind="relationship" relationship="viewControllers" id="fXc-R7-070"/>
-                        <segue destination="gR1-tQ-C5Q" kind="relationship" relationship="viewControllers" id="Uvs-NU-Qbt"/>
+                        <segue destination="cqd-Hh-XwA" kind="relationship" relationship="viewControllers" id="6T3-He-adG"/>
+                        <segue destination="iYm-Vh-J5X" kind="relationship" relationship="viewControllers" id="u8h-Km-f6h"/>
+                        <segue destination="GbB-Id-czt" kind="relationship" relationship="viewControllers" id="fXc-R7-070"/>
+                        <segue destination="iyE-zU-Ghx" kind="relationship" relationship="viewControllers" id="Uvs-NU-Qbt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMy-1y-9zI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,8 +56,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Gyms:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePV-GV-4hy">
                                 <rect key="frame" x="163" y="68" width="88" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="7BH-Le-IxA"/>
-                                    <constraint firstAttribute="width" constant="88" id="zd2-EI-lxG"/>
+                                    <constraint firstAttribute="width" constant="88" id="9Uy-nH-XSP"/>
+                                    <constraint firstAttribute="height" constant="21" id="Eev-ee-cKn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -66,18 +66,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="EUq-ml-QEy" firstAttribute="top" secondItem="WuE-dt-6Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="8v4-uo-8K6"/>
-                            <constraint firstItem="WuE-dt-6Ts" firstAttribute="top" secondItem="ePV-GV-4hy" secondAttribute="bottom" constant="8" symbolic="YES" id="K1C-p9-q8e"/>
-                            <constraint firstItem="WuE-dt-6Ts" firstAttribute="leading" secondItem="4E2-ei-ftu" secondAttribute="leading" id="PlE-lc-PYH"/>
-                            <constraint firstItem="ePV-GV-4hy" firstAttribute="top" secondItem="em0-Sn-3Lo" secondAttribute="bottom" constant="48" id="VgZ-Iy-5xr"/>
-                            <constraint firstItem="EUq-ml-QEy" firstAttribute="centerX" secondItem="WuE-dt-6Ts" secondAttribute="centerX" id="bmb-sw-wfX"/>
-                            <constraint firstItem="B1a-IJ-1OB" firstAttribute="top" secondItem="EUq-ml-QEy" secondAttribute="bottom" constant="89" id="lyC-pg-Sad"/>
-                            <constraint firstItem="B1a-IJ-1OB" firstAttribute="centerX" secondItem="EUq-ml-QEy" secondAttribute="centerX" id="m88-hi-RFe"/>
-                            <constraint firstAttribute="trailing" secondItem="WuE-dt-6Ts" secondAttribute="trailing" id="pW5-cv-PYz"/>
-                            <constraint firstItem="ePV-GV-4hy" firstAttribute="centerX" secondItem="WuE-dt-6Ts" secondAttribute="centerX" id="qcE-t9-bGS"/>
+                            <constraint firstItem="WuE-dt-6Ts" firstAttribute="top" secondItem="ePV-GV-4hy" secondAttribute="bottom" constant="8" symbolic="YES" id="5AD-w4-04y"/>
+                            <constraint firstItem="B1a-IJ-1OB" firstAttribute="centerX" secondItem="EUq-ml-QEy" secondAttribute="centerX" id="8tY-uS-O1L"/>
+                            <constraint firstItem="WuE-dt-6Ts" firstAttribute="centerX" secondItem="ePV-GV-4hy" secondAttribute="centerX" id="Doy-aQ-jgd"/>
+                            <constraint firstItem="WuE-dt-6Ts" firstAttribute="leading" secondItem="4E2-ei-ftu" secondAttribute="leading" id="Phe-x6-uFY"/>
+                            <constraint firstItem="ePV-GV-4hy" firstAttribute="top" secondItem="em0-Sn-3Lo" secondAttribute="bottom" constant="4" id="cdF-rF-wOc"/>
+                            <constraint firstItem="EUq-ml-QEy" firstAttribute="centerX" secondItem="WuE-dt-6Ts" secondAttribute="centerX" id="dLP-va-WV3"/>
+                            <constraint firstAttribute="trailing" secondItem="WuE-dt-6Ts" secondAttribute="trailing" id="fvY-g8-dQK"/>
+                            <constraint firstItem="B1a-IJ-1OB" firstAttribute="top" secondItem="EUq-ml-QEy" secondAttribute="bottom" constant="89" id="lmA-dx-UtU"/>
+                            <constraint firstItem="EUq-ml-QEy" firstAttribute="top" secondItem="WuE-dt-6Ts" secondAttribute="bottom" constant="8" symbolic="YES" id="qUP-o7-ywT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Gyms" id="5Ky-yL-Rn1"/>
+                    <navigationItem key="navigationItem" id="fKd-w5-Mez"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="wg4-qb-Md3" kind="show" identifier="ShowMap" id="a5B-wN-Gzh"/>
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmB-Q4-xuc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="472"/>
+            <point key="canvasLocation" x="1361" y="472"/>
         </scene>
         <!--Gyms Map-->
         <scene sceneID="kec-F4-FJe">
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePe-bO-Sxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="472"/>
+            <point key="canvasLocation" x="2181" y="472"/>
         </scene>
         <!--My Muscles-->
         <scene sceneID="2QK-Py-GTV">
@@ -130,12 +130,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Muscles" id="rEB-Ru-aiS"/>
+                    <navigationItem key="navigationItem" id="u8X-5r-RG2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIt-Rx-uLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="1410"/>
+            <point key="canvasLocation" x="1361" y="1410"/>
         </scene>
         <!--Take a Photo-->
         <scene sceneID="alP-1H-xsT">
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPQ-1L-OSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="2256"/>
+            <point key="canvasLocation" x="2181" y="2256"/>
         </scene>
         <!--New Before and After-->
         <scene sceneID="L8C-AN-rfj">
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lz9-OI-r7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="3198"/>
+            <point key="canvasLocation" x="2181" y="3198"/>
         </scene>
         <!--Before and After-->
         <scene sceneID="zWJ-gG-oee">
@@ -202,13 +202,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="axa-9u-YYf" firstAttribute="centerX" secondItem="Ey7-ab-zPO" secondAttribute="centerX" id="Gl3-Sy-ddL"/>
-                            <constraint firstItem="mVV-5q-2jr" firstAttribute="top" secondItem="QXN-fK-grF" secondAttribute="bottom" constant="79" id="Kj4-qs-ehL"/>
-                            <constraint firstItem="mVV-5q-2jr" firstAttribute="centerX" secondItem="axa-9u-YYf" secondAttribute="centerX" id="Z0m-xp-kQc"/>
-                            <constraint firstItem="AQe-12-XW8" firstAttribute="top" secondItem="axa-9u-YYf" secondAttribute="bottom" constant="419" id="inS-gQ-MgU"/>
+                            <constraint firstItem="AQe-12-XW8" firstAttribute="top" secondItem="axa-9u-YYf" secondAttribute="bottom" constant="419" id="0QL-hn-L4Z"/>
+                            <constraint firstItem="mVV-5q-2jr" firstAttribute="centerX" secondItem="Ey7-ab-zPO" secondAttribute="centerX" id="IKc-Pl-fss"/>
+                            <constraint firstItem="axa-9u-YYf" firstAttribute="centerX" secondItem="mVV-5q-2jr" secondAttribute="centerX" id="P9c-TZ-p9H"/>
+                            <constraint firstItem="mVV-5q-2jr" firstAttribute="top" secondItem="QXN-fK-grF" secondAttribute="bottom" constant="35" id="ftB-Vi-eIb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Before &amp; After" id="oPn-oo-LMe"/>
+                    <navigationItem key="navigationItem" id="zSJ-72-uae"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="1lw-Aj-aME" kind="show" identifier="ShowNewPhoto" id="dL5-wT-LSh"/>
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="db4-ms-Km4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="2776"/>
+            <point key="canvasLocation" x="1361" y="2776"/>
         </scene>
         <!--Add Workout-->
         <scene sceneID="nZD-ju-RcG">
@@ -239,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nW-af-zar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="-1546"/>
+            <point key="canvasLocation" x="2181" y="-1546"/>
         </scene>
         <!--My Workout-->
         <scene sceneID="k8v-uE-LHG">
@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnO-wR-YqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="-444"/>
+            <point key="canvasLocation" x="2181" y="-444"/>
         </scene>
         <!--Workout Info-->
         <scene sceneID="Lic-oR-Dpu">
@@ -292,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BC0-XZ-JBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2405" y="-1010"/>
+            <point key="canvasLocation" x="3031" y="-1010"/>
         </scene>
         <!--My Workouts-->
         <scene sceneID="BBH-Wg-h5m">
@@ -330,7 +330,6 @@
                             <outlet property="delegate" destination="gR1-tQ-C5Q" id="T4d-Ak-Ywf"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="My Workouts" id="Fnd-Ka-tsc"/>
                     <navigationItem key="navigationItem" id="Ggj-jz-x4L"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -341,10 +340,86 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqG-ds-GQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1361" y="-1010"/>
+        </scene>
+        <!--My Workouts-->
+        <scene sceneID="bdo-kO-8cO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iyE-zU-Ghx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Workouts" id="Fnd-Ka-tsc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RkB-bA-COi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gR1-tQ-C5Q" kind="relationship" relationship="rootViewController" id="tep-Se-LI6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o36-FV-6XZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="735" y="-1010"/>
+        </scene>
+        <!--My Gyms-->
+        <scene sceneID="4YE-ct-7Pz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cqd-Hh-XwA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Gyms" id="5Ky-yL-Rn1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OiV-HW-In2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AxP-jd-c56" kind="relationship" relationship="rootViewController" id="EWk-Y0-E5E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWV-zL-Ei3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="472"/>
+        </scene>
+        <!--My Muscles-->
+        <scene sceneID="kw0-qr-e3t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iYm-Vh-J5X" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Muscles" id="rEB-Ru-aiS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="303-WS-SEE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Qh-IF-jqB" kind="relationship" relationship="rootViewController" id="cZR-XC-VDy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nhh-MJ-SC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="1410"/>
+        </scene>
+        <!--Before & After-->
+        <scene sceneID="LEs-Y0-ZPT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GbB-Id-czt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Before &amp; After" id="oPn-oo-LMe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BV2-Ob-wlN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TTG-cA-bIg" kind="relationship" relationship="rootViewController" id="p91-AV-hGL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmR-u3-8af" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="2776"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NID-kH-V8F"/>
+        <segue reference="Taf-18-5Ho"/>
     </inferredMetricsTieBreakers>
 </document>
