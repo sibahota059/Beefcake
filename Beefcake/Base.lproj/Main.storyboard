@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPQ-1L-OSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="2270"/>
+            <point key="canvasLocation" x="1555" y="2256"/>
         </scene>
         <!--New Before and After-->
         <scene sceneID="L8C-AN-rfj">
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lz9-OI-r7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="3240"/>
+            <point key="canvasLocation" x="1555" y="3198"/>
         </scene>
         <!--Before and After-->
         <scene sceneID="zWJ-gG-oee">
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="db4-ms-Km4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="2582"/>
+            <point key="canvasLocation" x="735" y="2776"/>
         </scene>
         <!--Add Workout-->
         <scene sceneID="nZD-ju-RcG">
