@@ -14,6 +14,7 @@
 		94E330D91A10FB8F00635208 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E330D81A10FB8F00635208 /* Images.xcassets */; };
 		94E330DC1A10FB8F00635208 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E330DA1A10FB8F00635208 /* LaunchScreen.xib */; };
 		94E330E81A10FB8F00635208 /* BeefcakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E330E71A10FB8F00635208 /* BeefcakeTests.swift */; };
+		94E330F21A10FBA300635208 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E330F11A10FBA300635208 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		94E330E11A10FB8F00635208 /* BeefcakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeefcakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E330E61A10FB8F00635208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E330E71A10FB8F00635208 /* BeefcakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeefcakeTests.swift; sourceTree = "<group>"; };
+		94E330F11A10FBA300635208 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E330F21A10FBA300635208 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				94E330CC1A10FB8F00635208 /* Beefcake */,
+				94E330F31A10FBAD00635208 /* Frameworks */,
 				94E330E41A10FB8F00635208 /* BeefcakeTests */,
 				94E330CB1A10FB8F00635208 /* Products */,
 			);
@@ -115,6 +119,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		94E330F31A10FBAD00635208 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94E330F11A10FBA300635208 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +176,7 @@
 				TargetAttributes = {
 					94E330C91A10FB8F00635208 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 29R88YKZ9R;
 					};
 					94E330E01A10FB8F00635208 = {
 						CreatedOnToolsVersion = 6.1;
@@ -340,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Beefcake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Beefcake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
