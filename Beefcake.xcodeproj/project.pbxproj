@@ -57,6 +57,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94D6DA911A110C1A002ACD52 /* MyWorkouts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MyWorkouts;
+			sourceTree = "<group>";
+		};
+		94D6DA921A110C2F002ACD52 /* MyGyms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MyGyms;
+			sourceTree = "<group>";
+		};
+		94D6DA931A110C38002ACD52 /* MyMuscles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MyMuscles;
+			sourceTree = "<group>";
+		};
+		94D6DA941A110C49002ACD52 /* MyPhotos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MyPhotos;
+			sourceTree = "<group>";
+		};
 		94E330C11A10FB8F00635208 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +107,10 @@
 		94E330CC1A10FB8F00635208 /* Beefcake */ = {
 			isa = PBXGroup;
 			children = (
+				94D6DA941A110C49002ACD52 /* MyPhotos */,
+				94D6DA931A110C38002ACD52 /* MyMuscles */,
+				94D6DA921A110C2F002ACD52 /* MyGyms */,
+				94D6DA911A110C1A002ACD52 /* MyWorkouts */,
 				94E330CF1A10FB8F00635208 /* AppDelegate.swift */,
 				94E330D51A10FB8F00635208 /* Main.storyboard */,
 				945227121A11048600B04DB8 /* Images.xcassets */,

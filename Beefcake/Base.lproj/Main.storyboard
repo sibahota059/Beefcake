@@ -105,10 +105,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CvI-vj-tSI" firstAttribute="leading" secondItem="4VW-Vg-pJY" secondAttribute="leading" id="JKZ-W2-0zi"/>
-                            <constraint firstItem="Bw7-LN-Wlz" firstAttribute="top" secondItem="CvI-vj-tSI" secondAttribute="bottom" id="Mwx-VO-qrc"/>
-                            <constraint firstItem="CvI-vj-tSI" firstAttribute="top" secondItem="4VW-Vg-pJY" secondAttribute="top" id="nWp-XN-dFi"/>
-                            <constraint firstAttribute="trailing" secondItem="CvI-vj-tSI" secondAttribute="trailing" id="wdR-3J-PjA"/>
+                            <constraint firstItem="CvI-vj-tSI" firstAttribute="leading" secondItem="4VW-Vg-pJY" secondAttribute="leading" id="026-c2-5NW"/>
+                            <constraint firstAttribute="bottom" secondItem="CvI-vj-tSI" secondAttribute="bottom" id="RgI-bB-cbL"/>
+                            <constraint firstAttribute="trailing" secondItem="CvI-vj-tSI" secondAttribute="trailing" id="WuL-me-Q8s"/>
+                            <constraint firstItem="CvI-vj-tSI" firstAttribute="top" secondItem="4VW-Vg-pJY" secondAttribute="top" id="d4I-rX-b30"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -282,10 +282,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="19d-W8-S4t" firstAttribute="leading" secondItem="pvE-IW-H3a" secondAttribute="leading" id="7ym-Yo-Ers"/>
-                            <constraint firstItem="19d-W8-S4t" firstAttribute="top" secondItem="pvE-IW-H3a" secondAttribute="top" id="Kqi-cB-Mg2"/>
-                            <constraint firstItem="SFo-hf-1gE" firstAttribute="top" secondItem="19d-W8-S4t" secondAttribute="bottom" id="djH-1N-4p2"/>
-                            <constraint firstAttribute="trailing" secondItem="19d-W8-S4t" secondAttribute="trailing" id="qb3-7G-cwl"/>
+                            <constraint firstItem="19d-W8-S4t" firstAttribute="top" secondItem="pvE-IW-H3a" secondAttribute="top" id="asd-Bz-LGk"/>
+                            <constraint firstAttribute="bottom" secondItem="19d-W8-S4t" secondAttribute="bottom" id="ltL-cN-rwM"/>
+                            <constraint firstItem="19d-W8-S4t" firstAttribute="leading" secondItem="pvE-IW-H3a" secondAttribute="leading" id="mBM-76-Kj0"/>
+                            <constraint firstAttribute="trailing" secondItem="19d-W8-S4t" secondAttribute="trailing" id="wo1-On-IPq"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
