@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>Snap Fitness Old Town Alexandria</key>
+	<array>
+		<string>1315 King St, Alexandria, VA 22314</string>
+		<string>http://www.snapfitness.com/gyms/alexandria-va-22314/1579</string>
+	</array>
+	<key>War Memorial Hall</key>
+	<array>
+		<string>Virginia Polytechnic Institute and State University Blacksburg, VA 24060</string>
+		<string>https://www.recsports.vt.edu/facilities#facility-456</string>
+	</array>
+	<key>McComas Hall</key>
+	<array>
+		<string>Virginia Polytechnic Institute and State University Blacksburg, VA 24060</string>
+		<string>https://www.recsports.vt.edu/facilities#facility-455</string>
+	</array>
+</dict>
 </plist>
