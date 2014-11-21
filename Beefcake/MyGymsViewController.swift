@@ -200,7 +200,7 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             var gymWebViewController: GymWebViewController = segue.destinationViewController as GymWebViewController
             
             // pass the data object to the downsteam view controller
-            gymWebViewController.locationDataPassedDown = self.webDataObjectToPass
+            gymWebViewController.webInfoPassedDown = self.webDataObjectToPass
         }
             
         else if segue.identifier == "EditGym"

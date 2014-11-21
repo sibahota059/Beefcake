@@ -8,20 +8,40 @@
 
 import UIKit
 
+
 class EditGymViewController: UIViewController {
 
+    
+    //-----------------
+    // Global Variables
+    //-----------------
+
+    // Gym data passed down from upstream view controller
+    var gymDataPassedDown = [String]()
+
+    
+    
+    //-------------------------------------------------------
+    // Function to be run when the GymMapViewController loads
+    //-------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    
+    
+    //-----------------------------------------------------------
+    // Function to call when the device recieves a memory warning
+    //-----------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    
+    
     /*
     // MARK: - Navigation
 

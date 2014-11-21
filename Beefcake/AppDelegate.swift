@@ -13,36 +13,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    //--------- Create and Initialize the NSMutableDictionaries ----------------
-
+    //------------------------------------------------------------
+    // Create and Initialize the Application NSMutableDictionaries
+    //------------------------------------------------------------
     
-    // Dictionary < Activites : String , Type : Dict >
-    var dict_Activites_Dict : NSMutableDictionary = NSMutableDictionary.alloc()
+    // Dictionary < Activity : String , Type : Dict >
+    var dict_Activity_Dict : NSMutableDictionary = NSMutableDictionary.alloc()
     
-    // Dictionary < GymNames : String , GymData : [String] >
-    var dict_GymNames_GymData: NSMutableDictionary = NSMutableDictionary.alloc()
+    // Dictionary < GymName : String , GymData : [String] >
+    var dict_GymName_GymData: NSMutableDictionary = NSMutableDictionary.alloc()
     
     // Dictionary < MyWorkouts : String , Activities : Dict >
-    var dict_MyWorkouts_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
+    var dict_Workout_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
+    
+    //My Muscles Dictionary < Muscle : String , Level : Integer >
+    var dict_Muscle_Level: NSMutableDictionary = NSMutableDictionary.alloc()
+    
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // obtain the document paths
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         
+        // obtain the document directory path
         let documentDirectoryPath = paths[0] as String
         
+        // Activities.plist path
         let activitiesPlistFilePathInDocumentDirectory = documentDirectoryPath + "/Activites.plist"
         
+        // MyGyms.plist path
         let myGymsPlistFilePathInDocumentDirectory = documentDirectoryPath + "/MyGyms.plist"
         
+        // MyWorkouts.plist path
         let myWorkoutsPlistFilePathInDocumentDirectory = documentDirectoryPath + "/MyWorkouts.plist"
         
         
-        
-        // NSMutableDictionary manages an *unordered* collection of mutable (changeable) key-value pairs.
-        // Instantiate an NSMutableDictionary object and initialize it with the contents of the CountryCities.plist file.
-        
+        // Instantiate NSMutableDictionaries from the stored files
         var activitesDictionaryFromFile: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: activitiesPlistFilePathInDocumentDirectory)
         
         var myGymsDictionaryFromFile: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: myGymsPlistFilePathInDocumentDirectory)
@@ -50,15 +57,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var myWorkoutsDictionaryFromFile: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: myWorkoutsPlistFilePathInDocumentDirectory)
         
         /*
-        If the optional variable dictionaryFromFile has a value, then
-        Activites.plist, MyGyms.plist and MyWorkouts.plist exist in the Document directory and the dictionary is successfully created; else read the plists from the application's main bundle.
+        If the optional variable dictionaryFromFile has a value, then Activites.plist, MyGyms.plist and MyWorkouts.plist exist in the Document directory and the dictionaries is successfully created; else read the plists from the application's main bundle.
         */
         
-        // activites plist
+        //----------------------------
+        // loading the activites plist
+        //----------------------------
         if var activitiesPlistFilePathInDocumentDirectory = activitesDictionaryFromFile {
             
             // Activites.plist exists in the Document directory
-            dict_Activites_Dict = activitiesPlistFilePathInDocumentDirectory
+            dict_Activity_Dict = activitiesPlistFilePathInDocumentDirectory
             
         } else {
             
@@ -71,14 +79,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var activitesDictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: activitiesPlistFilePathInMainBundle!)
             
             // Typecast the created NSDictionary as Dictionary type and assign it to the property
-            dict_Activites_Dict = activitesDictionaryFromFileInMainBundle!
+            dict_Activity_Dict = activitesDictionaryFromFileInMainBundle!
         }
         
         // myGyms plist
         if var myGymsPlistFilePathInDocumentDirectory = myGymsDictionaryFromFile {
             
             // MyGyms.plist exists in the Document directory
-            dict_GymNames_GymData = myGymsPlistFilePathInDocumentDirectory
+            dict_GymName_GymData = myGymsPlistFilePathInDocumentDirectory
             
         } else {
             
@@ -91,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var myGymsDictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: myGymsPlistFilePathInMainBundle!)
             
             // Typecast the created NSDictionary as Dictionary type and assign it to the property
-            dict_GymNames_GymData = myGymsDictionaryFromFile!
+            dict_GymName_GymData = myGymsDictionaryFromFile!
         }
         
         
@@ -99,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if var myWorkoutsPlistFilePathInDocumentDirectory = myWorkoutsDictionaryFromFile {
             
             // MyWorkouts.plist exists in the Document directory
-            dict_MyWorkouts_Dict = myWorkoutsPlistFilePathInDocumentDirectory
+            dict_Workout_Dict = myWorkoutsPlistFilePathInDocumentDirectory
             
         } else {
             
@@ -112,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var myWorkoutsDictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: myWorkoutsPlistFilePathInMainBundle!)
             
             // Typecast the created NSDictionary as Dictionary type and assign it to the property
-            dict_MyWorkouts_Dict = myWorkoutsDictionaryFromFile!
+            dict_Workout_Dict = myWorkoutsDictionaryFromFile!
         }
         return true
     }
@@ -126,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locked, and gains focus when the device is unlocked." [Apple]
         */
         
-        // Define the file path to the CountryCities.plist file in the Document directory
+        // Define the file path to the plist files in the Document directory
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentDirectoryPath = paths[0] as String
         
@@ -136,13 +144,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Write the dictionary to the Activites.plist file in the Document directory
-        dict_Activites_Dict.writeToFile(activitiesPlistFilePathInDocumentDirectory, atomically: true)
+        dict_Activity_Dict.writeToFile(activitiesPlistFilePathInDocumentDirectory, atomically: true)
         
         // Write the dictionary to the MyGyms.plist file in the Document directory
-        dict_GymNames_GymData.writeToFile(myGymsPlistFilePathInDocumentDirectory, atomically: true)
+        dict_GymName_GymData.writeToFile(myGymsPlistFilePathInDocumentDirectory, atomically: true)
         
         // Write the dictionary to the MyWorkouts.plist file in the Document directory
-        dict_MyWorkouts_Dict.writeToFile(myWorkoutsPlistFilePathInDocumentDirectory, atomically: true)
+        dict_Workout_Dict.writeToFile(myWorkoutsPlistFilePathInDocumentDirectory, atomically: true)
         
         /*
         The flag "atomically" specifies whether the file should be written atomically or not.

@@ -299,7 +299,7 @@
                         <viewControllerLayoutGuide type="top" id="rJ4-GZ-lrm"/>
                         <viewControllerLayoutGuide type="bottom" id="zTZ-z3-Vf8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZAU-BY-JNu">
+                    <view key="view" contentMode="scaleToFill" id="ZAU-BY-JNu" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -325,28 +325,55 @@
                                 <rect key="frame" x="16" y="133" width="382" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="DaD-U4-MxM" eventType="editingDidEnd" id="zbE-4H-9P8"/>
+                                    <outlet property="delegate" destination="DaD-U4-MxM" id="9FR-Xb-gpL"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfC-Jg-hdX">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfC-Jg-hdX">
                                 <rect key="frame" x="16" y="224" width="382" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="DaD-U4-MxM" eventType="editingDidEnd" id="Xg6-oi-n85"/>
+                                    <outlet property="delegate" destination="DaD-U4-MxM" id="dMA-QJ-mta"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEz-3v-wv2">
-                                <rect key="frame" x="16" y="324" width="382" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEz-3v-wv2">
+                                <rect key="frame" x="16" y="325" width="382" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="DaD-U4-MxM" eventType="editingDidEnd" id="6Je-4k-r3J"/>
+                                    <outlet property="delegate" destination="DaD-U4-MxM" id="uvo-nQ-1uO"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="backgroundTouch:" destination="DaD-U4-MxM" eventType="valueChanged" id="cp9-YT-bag"/>
+                            <action selector="backgroundTouch:" destination="DaD-U4-MxM" eventType="touchUpInside" id="sRH-mC-4Ex"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Gym" id="RKO-Ed-qCW">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="592-6a-wZr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="592-6a-wZr">
+                            <connections>
+                                <action selector="save:" destination="DaD-U4-MxM" id="M4N-4s-19s"/>
+                                <segue destination="Kic-sB-EMI" kind="unwind" identifier="AddGym-Save" unwindAction="unwindToGymViewController:" id="yEq-68-wy3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="vfC-Jg-hdX" id="8oF-1o-H2o"/>
+                        <outlet property="nameTextField" destination="uys-bf-kyH" id="2NO-m9-e8I"/>
+                        <outlet property="websiteTextField" destination="wEz-3v-wv2" id="9Cl-6W-Gwf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mI6-7y-aq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Kic-sB-EMI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2157" y="-298"/>
         </scene>
