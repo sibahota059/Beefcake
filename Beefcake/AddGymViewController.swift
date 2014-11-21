@@ -8,9 +8,7 @@
 
 import UIKit
 
-
 class AddGymViewController: UIViewController, UITextFieldDelegate {
-
     
     //-----------
     // UI Objects

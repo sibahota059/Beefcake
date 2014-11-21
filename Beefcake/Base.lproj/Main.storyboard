@@ -369,6 +369,7 @@
                     <connections>
                         <outlet property="addressTextField" destination="vfC-Jg-hdX" id="8oF-1o-H2o"/>
                         <outlet property="nameTextField" destination="uys-bf-kyH" id="2NO-m9-e8I"/>
+                        <outlet property="urlTextField" destination="wEz-3v-wv2" id="YG2-eq-Yb4"/>
                         <outlet property="websiteTextField" destination="wEz-3v-wv2" id="9Cl-6W-Gwf"/>
                     </connections>
                 </viewController>
