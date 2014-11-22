@@ -30,8 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var dict_Muscle_Level: NSMutableDictionary = NSMutableDictionary.alloc()
     
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         
         // obtain the document paths
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)

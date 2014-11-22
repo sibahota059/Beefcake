@@ -116,12 +116,20 @@
 			name = MyPhotos;
 			sourceTree = "<group>";
 		};
-		94E330C11A10FB8F00635208 = {
+		94E01F271A21075800D32A45 /* pList Files */ = {
 			isa = PBXGroup;
 			children = (
 				94588F221A1E89F700CA7F52 /* Activities.plist */,
 				94588F261A1E8B8C00CA7F52 /* MyGyms.plist */,
 				94588F241A1E8AD700CA7F52 /* MyWorkouts.plist */,
+			);
+			name = "pList Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		94E330C11A10FB8F00635208 = {
+			isa = PBXGroup;
+			children = (
 				94E330CC1A10FB8F00635208 /* Beefcake */,
 				94E330F31A10FBAD00635208 /* Frameworks */,
 				94E330E41A10FB8F00635208 /* BeefcakeTests */,
@@ -150,6 +158,7 @@
 				94E330D51A10FB8F00635208 /* Main.storyboard */,
 				945227121A11048600B04DB8 /* Images.xcassets */,
 				94E330DA1A10FB8F00635208 /* LaunchScreen.xib */,
+				94E01F271A21075800D32A45 /* pList Files */,
 				94E330CD1A10FB8F00635208 /* Supporting Files */,
 			);
 			path = Beefcake;

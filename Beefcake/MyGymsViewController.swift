@@ -336,8 +336,8 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             deleteGym(name: nameEntered, address: addressEntered, url: urlEntered)
         }
             
-            // editing a theatre
-        else if (segue.identifier == "EditTheatre-Save")
+        // editing a gym
+        else if (segue.identifier == "EditGym-Save")
         {
             // get the downstream controller
             var controller: EditGymViewController = segue.sourceViewController as EditGymViewController
@@ -347,13 +347,11 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             var addressEntered = controller.addressTextField.text
             var urlEntered = controller.urlTextField.text
             
-            var gymData: [String] = [nameEntered, addressEntered, urlEntered]
-            
             // add the gym
-            addGym(name: nameEntered, gymData: gymData)
+            addGym(name: nameEntered, address: addressEntered, url: urlEntered)
         }
             
-            // Do Nothing
+        // Do Nothing
         else
         {
             return
@@ -406,25 +404,28 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     //------------------------------------------------
     // function for adding a Gym to the dictionary
     //------------------------------------------------
-    func addGym(# name: String, gymData: [String]) {
+    func addGym(#name: String, address: String, url: String) {
         
-        // update the dictionary
+        // package the gym data in an array
+        var gymData = [address, url]
+        
+        // if the gym does not already exist in the dictionary...
         if applicationDelegate.dict_GymName_GymData.objectForKey(name) == nil {
             
             //insert the new record into the dictionary
-            applicationDelegate.dict_Theatres_Addresses.setObject(gymData, forKey: name)
+            applicationDelegate.dict_GymName_GymData.setObject(gymData, forKey: name)
         }
         else {
             
             // remove the old record
-            applicationDelegate.dict_Theatres_Addresses.removeObjectForKey(name)
+            applicationDelegate.dict_GymName_GymData.removeObjectForKey(name)
             
-            // insert the updated record
-            applicationDelegate.dict_Theatres_Addresses.setObject(gymData, forKey: name)
+            // insert the updated record (update/edit)
+            applicationDelegate.dict_GymName_GymData.setObject(gymData, forKey: name)
         }
         
         // update the gym names in this view
-        gymNames = applicationDelegate.dict_GymNames_GymData.allKeys as [String]
+        gymNames = applicationDelegate.dict_GymName_GymData.allKeys as [String]
         gymNames.sort {$0 < $1}
         
         // update this view
@@ -434,25 +435,29 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     //----------------------------------------------------
     // function for removing a Gym from the dictionary
     //----------------------------------------------------
-    func deleteGym(# name: String, gymData: [String]) {
+    func deleteGym(#name: String, address: String, url: String) {
         
-        // update the dictionary
-        if applicationDelegate.dict_GymNames_GymData.objectForKey(name) == nil {
+        // update the dictionary by removing the gym data, if it exists
+        if applicationDelegate.dict_GymName_GymData.objectForKey(name) == nil {
             
             // do nothing
+            return
         }
         else {
             
             // remove the record
-            applicationDelegate.dict_GymNames_GymData.removeObjectForKey(name)
+            applicationDelegate.dict_GymName_GymData.removeObjectForKey(name)
+            
+            // package the gym data in an array
+            var gymData = [address, url]
+            
+            // update the gym names in this view
+            gymNames = applicationDelegate.dict_GymName_GymData.allKeys as [String]
+            gymNames.sort {$0 < $1}
+            
+            // update this view
+            resetView()
         }
-        
-        // update the gym names in this view
-        gymNames = applicationDelegate.dict_GymNames_GymData.allKeys as [String]
-        gymNames.sort {$0 < $1}
-        
-        // update this view
-        resetView()
     }
     
     
