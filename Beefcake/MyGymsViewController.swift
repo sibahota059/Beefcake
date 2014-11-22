@@ -113,7 +113,7 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var numberOfGyms = gymNames.count
         var numberOfRowToShow = Int(numberOfGyms / 2)
         
-        // Show the picker view of Theatre names from the middle
+        // Show the picker view of Gym names, starting from the middle
         pickerView.selectRow(numberOfRowToShow, inComponent: 0, animated: false)
         
         // Deselect the earlier selected directions type
@@ -200,7 +200,7 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             var gymWebViewController: GymWebViewController = segue.destinationViewController as GymWebViewController
             
             // pass the data object to the downsteam view controller
-            gymWebViewController.webInfoPassedDown = self.webDataObjectToPass
+            gymWebViewController.webDataPassedDown = self.webDataObjectToPass
         }
             
         else if segue.identifier == "EditGym"
@@ -256,6 +256,39 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         performSegueWithIdentifier("GymMap", sender: self)
     }
+    
+    
+    //-----------------------------------
+    // function for showing the gymSearch
+    //-----------------------------------
+    @IBAction func searchGym(sender: UIButton) {
+        
+        //TODO
+    }
+    
+    
+    
+    //----------------------------------
+    // function for showing the web view
+    //----------------------------------
+    @IBAction func showWeb(sender: UIButton) {
+    
+        // get the currently selected gym name from the picker
+        var gymName: String = gymNames[pickerView.selectedRowInComponent(0)]
+        
+        // get the currently selected gyms data
+        var gymData: [String] = applicationDelegate.dict_GymName_GymData.objectForKey(gymName) as [String]
+        
+        // get the url of the gym from the gymData array
+        var gymUrl: String = gymData[1]
+        
+        // package data for downstream GymMapViewController
+        webDataObjectToPass[0] = gymName
+        webDataObjectToPass[1] = gymUrl
+        
+        performSegueWithIdentifier("GymWeb", sender: self)
+    }
+    
     
     /*
     --------------------------

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var dict_Workout_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
     
     //My Muscles Dictionary < Muscle : String , Level : Integer >
-    //var dict_Muscle_Level: NSMutableDictionary = NSMutableDictionary.alloc()
+    var dict_Muscle_Level: NSMutableDictionary = NSMutableDictionary.alloc()
     
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {

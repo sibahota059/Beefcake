@@ -29,7 +29,7 @@
         <!--My Gyms-->
         <scene sceneID="xY8-6c-JES">
             <objects>
-                <viewController title="My Gyms" id="AxP-jd-c56" sceneMemberID="viewController">
+                <viewController title="My Gyms" id="AxP-jd-c56" customClass="MyGymsViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="em0-Sn-3Lo"/>
                         <viewControllerLayoutGuide type="bottom" id="9Mo-2H-ojQ"/>
@@ -47,6 +47,10 @@
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchGym:" destination="AxP-jd-c56" eventType="touchUpInside" id="4H9-Xm-5ov"/>
+                                    <action selector="showMap:" destination="AxP-jd-c56" eventType="touchUpInside" id="J0Y-RZ-1NC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Map to Selected Gym:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2C-wS-03G">
                                 <rect key="frame" x="102" y="248" width="221" height="21"/>
@@ -68,16 +72,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to selected Gyms Website:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D65-8W-mdl">
-                                <rect key="frame" x="96" y="435" width="233" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="233" id="Eaa-XH-4F3"/>
-                                    <constraint firstAttribute="height" constant="21" id="wAa-ZF-yug"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1F-Ea-0QC">
                                 <rect key="frame" x="192" y="464" width="30" height="30"/>
                                 <constraints>
@@ -87,12 +81,19 @@
                                 <state key="normal" title="Go">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showWeb:" destination="AxP-jd-c56" eventType="touchUpInside" id="GqH-Rl-c9f"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WuE-dt-6Ts">
                                 <rect key="frame" x="0.0" y="72" width="414" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="PPq-1a-gTu"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="AxP-jd-c56" id="8RM-LZ-JEs"/>
+                                    <outlet property="delegate" destination="AxP-jd-c56" id="v4I-PZ-caA"/>
+                                </connections>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LHj-dl-gdS">
                                 <rect key="frame" x="16" y="277" width="382" height="29"/>
@@ -105,7 +106,20 @@
                                     <segment title="Hybrid"/>
                                     <segment title="Terrain"/>
                                 </segments>
+                                <connections>
+                                    <action selector="showMap:" destination="AxP-jd-c56" eventType="valueChanged" id="bLx-i7-cdZ"/>
+                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to selected Gyms Website:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D65-8W-mdl">
+                                <rect key="frame" x="96" y="435" width="233" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="233" id="Eaa-XH-4F3"/>
+                                    <constraint firstAttribute="height" constant="21" id="wAa-ZF-yug"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -134,6 +148,8 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="mapTypeSegmentedControl" destination="LHj-dl-gdS" id="0G0-60-O1W"/>
+                        <outlet property="pickerView" destination="WuE-dt-6Ts" id="kYc-gL-sM0"/>
                         <segue destination="wg4-qb-Md3" kind="show" identifier="GymMap" id="a5B-wN-Gzh"/>
                         <segue destination="DaD-U4-MxM" kind="show" identifier="AddGym" id="rac-ZR-CRt"/>
                         <segue destination="3oA-Kc-7d8" kind="show" identifier="GymWeb" id="T6n-kl-eii"/>
@@ -295,14 +311,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DgJ-H3-bd7">
+                            <webView contentMode="scaleAspectFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DgJ-H3-bd7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3oA-Kc-7d8" id="Uv7-cA-qkk"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DgJ-H3-bd7" secondAttribute="bottom" id="0CS-Sz-p1t"/>
+                            <constraint firstItem="DgJ-H3-bd7" firstAttribute="top" secondItem="IYj-X8-0eG" secondAttribute="top" id="Ybl-O7-G71"/>
+                            <constraint firstItem="DgJ-H3-bd7" firstAttribute="leading" secondItem="IYj-X8-0eG" secondAttribute="leading" id="fSp-wQ-yqk"/>
+                            <constraint firstAttribute="trailing" secondItem="DgJ-H3-bd7" secondAttribute="trailing" id="frL-U6-bBf"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="webView" destination="DgJ-H3-bd7" id="b15-2K-jrl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEL-fQ-zcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -398,7 +427,7 @@
         <!--GymMap-->
         <scene sceneID="kec-F4-FJe">
             <objects>
-                <viewController title="GymMap" id="wg4-qb-Md3" sceneMemberID="viewController">
+                <viewController title="GymMap" id="wg4-qb-Md3" customClass="GymMapViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qkQ-q8-cfT"/>
                         <viewControllerLayoutGuide type="bottom" id="Bw7-LN-Wlz"/>
@@ -407,14 +436,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CkL-yS-tiS">
+                            <webView multipleTouchEnabled="YES" contentMode="scaleAspectFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CkL-yS-tiS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wg4-qb-Md3" id="6hi-lb-YHW"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CkL-yS-tiS" secondAttribute="trailing" id="DNw-uH-rAV"/>
+                            <constraint firstItem="CkL-yS-tiS" firstAttribute="leading" secondItem="4VW-Vg-pJY" secondAttribute="leading" id="XKK-Rx-RY0"/>
+                            <constraint firstItem="CkL-yS-tiS" firstAttribute="top" secondItem="4VW-Vg-pJY" secondAttribute="top" id="dIe-gi-cno"/>
+                            <constraint firstAttribute="bottom" secondItem="CkL-yS-tiS" secondAttribute="bottom" id="gJ3-qh-Jx7"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="webView" destination="CkL-yS-tiS" id="bs4-Oy-WUZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePe-bO-Sxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
