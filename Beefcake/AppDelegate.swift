@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var dict_Workout_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
     
     //My Muscles Dictionary < Muscle : String , Level : Integer >
-    var dict_Muscle_Level: NSMutableDictionary = NSMutableDictionary.alloc()
+    //var dict_Muscle_Level: NSMutableDictionary = NSMutableDictionary.alloc()
     
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var myGymsDictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: myGymsPlistFilePathInMainBundle!)
             
             // Typecast the created NSDictionary as Dictionary type and assign it to the property
-            dict_GymName_GymData = myGymsDictionaryFromFile!
+            dict_GymName_GymData = myGymsDictionaryFromFileInMainBundle!
         }
         
         
@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var myWorkoutsDictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: myWorkoutsPlistFilePathInMainBundle!)
             
             // Typecast the created NSDictionary as Dictionary type and assign it to the property
-            dict_Workout_Dict = myWorkoutsDictionaryFromFile!
+            dict_Workout_Dict = myWorkoutsDictionaryFromFileInMainBundle!
         }
         return true
     }
