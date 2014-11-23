@@ -10,12 +10,12 @@
 	<key>War Memorial Hall</key>
 	<array>
 		<string>Virginia Polytechnic Institute and State University Blacksburg, VA 24060</string>
-		<string>http://www.recsports.vt.edu/facilities</string>
+		<string>https://www.recsports.vt.edu/facilities#facility-456</string>
 	</array>
 	<key>McComas Hall</key>
 	<array>
 		<string>Virginia Polytechnic Institute and State University Blacksburg, VA 24060</string>
-		<string>http://www.recsports.vt.edu/facilities#facility-455</string>
+		<string>https://www.recsports.vt.edu/facilities#facility-455</string>
 	</array>
 </dict>
 </plist>

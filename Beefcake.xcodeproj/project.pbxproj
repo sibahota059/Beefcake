@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		945227131A11048600B04DB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945227121A11048600B04DB8 /* Images.xcassets */; };
+		945371631A214608005B7903 /* GymSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945371621A214608005B7903 /* GymSearchViewController.swift */; };
+		945371651A215257005B7903 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945371641A215257005B7903 /* CoreLocation.framework */; };
 		94588F231A1E89F700CA7F52 /* Activities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94588F221A1E89F700CA7F52 /* Activities.plist */; };
 		94588F251A1E8AD700CA7F52 /* MyWorkouts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94588F241A1E8AD700CA7F52 /* MyWorkouts.plist */; };
 		94588F271A1E8B8C00CA7F52 /* MyGyms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94588F261A1E8B8C00CA7F52 /* MyGyms.plist */; };
@@ -21,7 +23,6 @@
 		94E330D71A10FB8F00635208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E330D51A10FB8F00635208 /* Main.storyboard */; };
 		94E330DC1A10FB8F00635208 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E330DA1A10FB8F00635208 /* LaunchScreen.xib */; };
 		94E330E81A10FB8F00635208 /* BeefcakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E330E71A10FB8F00635208 /* BeefcakeTests.swift */; };
-		94E330F21A10FBA300635208 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E330F11A10FBA300635208 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		945227121A11048600B04DB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		945371621A214608005B7903 /* GymSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymSearchViewController.swift; sourceTree = "<group>"; };
+		945371641A215257005B7903 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		94588F221A1E89F700CA7F52 /* Activities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Activities.plist; sourceTree = "<group>"; };
 		94588F241A1E8AD700CA7F52 /* MyWorkouts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MyWorkouts.plist; sourceTree = "<group>"; };
 		94588F261A1E8B8C00CA7F52 /* MyGyms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MyGyms.plist; sourceTree = "<group>"; };
@@ -61,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E330F21A10FBA300635208 /* MapKit.framework in Frameworks */,
+				945371651A215257005B7903 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 				94588F331A1E98EC00CA7F52 /* EditGymViewController.swift */,
 				94588F2C1A1E8E9700CA7F52 /* GymMapViewController.swift */,
 				94588F2E1A1E8EA500CA7F52 /* GymWebViewController.swift */,
+				945371621A214608005B7903 /* GymSearchViewController.swift */,
 			);
 			name = MyGyms;
 			sourceTree = "<group>";
@@ -192,6 +196,7 @@
 		94E330F31A10FBAD00635208 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				945371641A215257005B7903 /* CoreLocation.framework */,
 				94E330F11A10FBA300635208 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -306,6 +311,7 @@
 				94588F291A1E8E6C00CA7F52 /* MyGymsViewController.swift in Sources */,
 				94588F2F1A1E8EA500CA7F52 /* GymWebViewController.swift in Sources */,
 				94E330D01A10FB8F00635208 /* AppDelegate.swift in Sources */,
+				945371631A214608005B7903 /* GymSearchViewController.swift in Sources */,
 				94588F341A1E98EC00CA7F52 /* EditGymViewController.swift in Sources */,
 				94588F2D1A1E8E9700CA7F52 /* GymMapViewController.swift in Sources */,
 			);

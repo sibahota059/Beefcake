@@ -1,14 +1,14 @@
 //
-//  GymWebViewController.swift
+//  GymSearchViewController.swift
 //  Beefcake
 //
-//  Created by Ryan Connors on 11/20/14.
+//  Created by Ryan Connors on 11/22/14.
 //  Copyright (c) 2014 Ryan Connors. All rights reserved.
 //
 
 import UIKit
 
-class GymWebViewController: UIViewController, UIWebViewDelegate {
+class GymSearchViewController: UIViewController, UIWebViewDelegate {
     
     
     //------------
@@ -23,23 +23,19 @@ class GymWebViewController: UIViewController, UIWebViewDelegate {
     // Global Variables
     //-----------------
     
-    // Web data passed down from upstream view controller
-    var webDataPassedDown = [String]()
+    // Search data passed down from upstream view controller
+    var searchURLPassedDown : String = ""
+    
+    
 
-    
-    
     //-------------------------------------------------------
     // Function to be run when the GymMapViewController loads
     //-------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Obtain the data passed from the upstream view controller
-        self.title = webDataPassedDown[0]
-        var gymUrl = webDataPassedDown[1]
         
         // convert gymUrl into an NSURL object and store its object reference
-        var url = NSURL(string: gymUrl)
+        var url = NSURL(string: searchURLPassedDown)
         
         /*
         Convert the NSURL object into an NSURLRequest object and store its object
@@ -51,7 +47,7 @@ class GymWebViewController: UIViewController, UIWebViewDelegate {
         // Ask the webView object to display the web page for the given URL
         webView.loadRequest(request)
     }
-
+    
     
     //-----------------------------------------------------------
     // Function to call when the device recieves a memory warning
@@ -61,7 +57,6 @@ class GymWebViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     ----------------------------------
     MARK: - UIWebView Delegate Methods
@@ -97,5 +92,6 @@ class GymWebViewController: UIViewController, UIWebViewDelegate {
         // Display the error message within the UIWebView object
         self.webView.loadHTMLString(errorString, baseURL: nil)
     }
+
 
 }

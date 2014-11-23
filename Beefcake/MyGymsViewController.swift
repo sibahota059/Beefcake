@@ -42,14 +42,13 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // dataObjectToPass = [ GymName: String, GymURL: String ]
     var webDataObjectToPass: [String] = ["", ""]
     
-    // location data to pass to find nearby gyms
-    var locationDataToPass: String = ""
-    
     // dataObjectToPass is the data object to pass to the downstream view controller
     // dataObjectToPass = [ GymName: String, Address: String, Website: String ]
     var gymDataToPassDown: [String] = ["", "", ""]
     
-
+    // search URL to pass down to find nearby gyms
+    var gymSearchURLtoPassDown: String = ""
+    
     
     /*
     =======================
@@ -131,57 +130,16 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
-    
-    /*
-    ====================================
-    MARK: - UITextField Delegate Methods
-    ====================================
-    */
-    
-    // This method is called when the user taps inside a text field
-    func textFieldDidBeginEditing(textField: UITextField!) {
-        
-    }
-    
-    //???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
-    // THIS METHOD NEEDS TO BE UPDATE TO FIRE WITH THE SEARCH BUTTON + GET CURRENT LOCATION DATA ????????????????????????????
-    //???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
-    /*
-    This method is called when the user:
-    (1) selects another UI object after editing in a text field
-    (2) taps Return on the keyboard
-    */
-    func textFieldDidEndEditing(textField: UITextField!) {
-        
-    }
-    
-    // This method is called when the user taps Return on the keyboard
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        
-        // Deactivate the text field and remove the keyboard
-        textField.resignFirstResponder()
-        
-        if textField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" {
-            showErrorMessage("Missing necessary location data")
-        }
-        else {
-            
-            var location = textField.text.stringByReplacingOccurrencesOfString(" ", withString: "+", options: nil, range: nil)
-            
-            locationDataToPass = "http://google.com/movies?near=\(location)"
-            performSegueWithIdentifier("Showtimes", sender: self)
-        }
-        
-        return true
-    }
-    
-    
     /*
     =====================
     MARK: - Navigation
     =====================
     */
     
+    
+    //-------------------------
+    // Segue Preparation Method
+    //-------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // Performing a Gym Google Maps Web View segue
@@ -211,7 +169,17 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             // pass the data object to the downsteam view controller
             editGymViewController.gymDataPassedDown = self.gymDataToPassDown
         }
+        
+        else if segue.identifier == "GymSearch"
+        {
+            // Obtain the object reference of the destination (downstream) view controller
+            var gymSearchViewController: GymSearchViewController = segue.destinationViewController as GymSearchViewController
+            
+            // pass the search URL String to the downsteam view controller
+            gymSearchViewController.searchURLPassedDown = gymSearchURLtoPassDown
+        }
     }
+    
     
     
     //----------------------------------
@@ -258,16 +226,6 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
-    //-----------------------------------
-    // function for showing the gymSearch
-    //-----------------------------------
-    @IBAction func searchGym(sender: UIButton) {
-        
-        //TODO
-    }
-    
-    
-    
     //----------------------------------
     // function for showing the web view
     //----------------------------------
@@ -289,28 +247,20 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         performSegueWithIdentifier("GymWeb", sender: self)
     }
     
-    
-    /*
-    --------------------------
-    MARK: - Add Theatre Method
-    --------------------------
-    */
-    
-    // The addGym method is invoked when the user taps the Add button created in viewDidLoad() above.
-    func addTheatre(sender: AnyObject) {
+
         
-        // Perform the segue named AddTheatre
+    //----------------------------------------------------------------
+    // The addGym method is invoked when the user taps the Add (+) button
+    //----------------------------------------------------------------
+    func addGym(sender: AnyObject) {
+    
         performSegueWithIdentifier("AddGym", sender: self)
     }
     
     
-    /*
-    -----------------------
-    MARK: - Edit Movie Method
-    -----------------------
-    */
-    
-    // The addGym method is invoked when the user taps the Edit button
+    //-----------------------------------------------------------------
+    // The editGym method is invoked when the user taps the Edit button
+    //-----------------------------------------------------------------
     func editGym(sender: AnyObject) {
         
         // obtain current gym information from the pickerView
@@ -332,6 +282,25 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
+    //-------------------------------------------------------------------
+    // The editGym method is invoked when the user taps the Search button
+    //-------------------------------------------------------------------
+    @IBAction func searchGyms(sender: UIButton) {
+        
+        //TODO
+        
+        // check for users allowance of current location
+        
+        // get the users current location
+        
+        // construct the search URL
+        
+        // perform the GymSearch segue
+        
+        performSegueWithIdentifier("GymSearch", sender: self)
+    }
+    
+    
     /*
     ---------------------------
     MARK: - Unwind Segue Method
@@ -350,8 +319,8 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             var addressEntered = controller.addressTextField.text
             var urlEntered = controller.urlTextField.text
             
-            // add the gym
-            addGym(name: nameEntered, address: addressEntered, url: urlEntered)
+            // insert the gym into the dictionary
+            insertGym(name: nameEntered, address: addressEntered, url: urlEntered)
         }
             
         // deleting a gym
@@ -365,7 +334,7 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             var addressEntered = controller.addressTextField.text
             var urlEntered = controller.urlTextField.text
             
-            // delete the gym
+            // delete the gym from the dictionary
             deleteGym(name: nameEntered, address: addressEntered, url: urlEntered)
         }
             
@@ -380,10 +349,10 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             var addressEntered = controller.addressTextField.text
             var urlEntered = controller.urlTextField.text
             
-            // add the gym
-            addGym(name: nameEntered, address: addressEntered, url: urlEntered)
+            // insert the gym into the dictionary
+            insertGym(name: nameEntered, address: addressEntered, url: urlEntered)
         }
-            
+        
         // Do Nothing
         else
         {
@@ -435,9 +404,9 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     //------------------------------------------------
-    // function for adding a Gym to the dictionary
+    // function for inserting a Gym to the dictionary
     //------------------------------------------------
-    func addGym(#name: String, address: String, url: String) {
+    func insertGym(#name: String, address: String, url: String) {
         
         // package the gym data in an array
         var gymData = [address, url]
@@ -492,7 +461,7 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             resetView()
         }
     }
-    
+
     
     /*
     ------------------------------------------------
