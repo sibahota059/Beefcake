@@ -24,7 +24,7 @@ class GymSearchViewController: UIViewController, UIWebViewDelegate {
     //-----------------
     
     // Search data passed down from upstream view controller
-    var searchURLPassedDown : String = ""
+    var searchURLPassedDown : String = "https://www.google.com/search?q=gyms&oq=gyms&aqs=chrome..69i57j0l5.629j0j7&sourceid=chrome&es_sm=119&ie=UTF-8"
     
     
 
@@ -33,6 +33,8 @@ class GymSearchViewController: UIViewController, UIWebViewDelegate {
     //-------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        println("url Passed Down: \(searchURLPassedDown)")
         
         // convert gymUrl into an NSURL object and store its object reference
         var url = NSURL(string: searchURLPassedDown)

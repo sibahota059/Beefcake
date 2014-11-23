@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
 
     //--------------------
     // UI Object variables
@@ -50,6 +51,16 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var gymSearchURLtoPassDown: String = ""
     
     
+    //-------------------
+    // Location variables
+    //-------------------
+    
+    // Instantiate a CLLocationManager object
+    var locationManager = CLLocationManager()
+    
+    var userAuthorizedLocationMonitoring = false
+    
+    
     /*
     =======================
     MARK: - View Life Cycle
@@ -79,9 +90,6 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // set the title of this view
         self.title = "My Gyms"
         
-        // Obtain the absolute file path to the maps.html file in the main bundle
-        mapsHtmlFilePath = NSBundle.mainBundle().pathForResource("maps", ofType: "html")
-        
         /*
         allKeys returns a new array containing the dictionary’s keys as of type AnyObject.
         Therefore, typecast the AnyObject type keys to be of type String.
@@ -91,6 +99,43 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // Sort the gym names within itself in alphabetical order
         gymNames.sort { $0 < $1 }
+        
+        // Obtain the absolute file path to the maps.html file in the main bundle
+        mapsHtmlFilePath = NSBundle.mainBundle().pathForResource("maps", ofType: "html")
+        
+        println("LOCATION? : \(CLLocationManager.locationServicesEnabled())")
+        
+        // check that location services are enabled
+        if !CLLocationManager.locationServicesEnabled() {
+            
+            // Instantiate an alert view object
+            var alertView = UIAlertView()
+            
+            alertView.title = "Location Services Disabled!"
+            alertView.message = "Turn Location Services On in your device settings to be able to use location services!"
+            alertView.delegate = nil
+            alertView.addButtonWithTitle("OK")
+            
+            alertView.show()
+            
+            return
+        }
+        
+        // request user approval for their current location
+        locationManager.requestWhenInUseAuthorization()
+        
+        // check the status of location authorization
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied
+        {
+            self.userAuthorizedLocationMonitoring = false
+        }
+        else
+        {
+            self.userAuthorizedLocationMonitoring = true
+        }
+
+        // Obtain the absolute file path to the maps.html file in the main bundle
+        mapsHtmlFilePath = NSBundle.mainBundle().pathForResource("maps", ofType: "html")
     }
     
     
@@ -176,7 +221,7 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             var gymSearchViewController: GymSearchViewController = segue.destinationViewController as GymSearchViewController
             
             // pass the search URL String to the downsteam view controller
-            gymSearchViewController.searchURLPassedDown = gymSearchURLtoPassDown
+            gymSearchViewController.searchURLPassedDown = self.gymSearchURLtoPassDown
         }
     }
     
@@ -287,25 +332,111 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     //-------------------------------------------------------------------
     @IBAction func searchGyms(sender: UIButton) {
         
-        //TODO
+        if !userAuthorizedLocationMonitoring {
+            
+            // User does not authorize location monitoring
+            
+            // Instantiate an alert view object
+            var alertView = UIAlertView()
+            
+            alertView.title = "Authorization Denied!"
+            alertView.message = "Unable to determine current location!"
+            alertView.delegate = nil
+            alertView.addButtonWithTitle("OK")
+            
+            alertView.show()
+            
+            return
+        }
         
-        // check for users allowance of current location
+        // Set the current view controller to be the delegate of the location manager object
+        locationManager.delegate = self
         
-        // get the users current location
+        // Set the location manager's distance filter to kCLDistanceFilterNone implying that
+        // a location update will be sent regardless of movement of the device
+        locationManager.distanceFilter = kCLDistanceFilterNone
         
-        // construct the search URL
+        // Set the location manager's desired accuracy to be the best
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        // perform the GymSearch segue
+        // Start the generation of updates that report the user’s current location.
+        // Implement the CLLocationManager Delegate Methods below to receive and process the location info.
+        locationManager.startUpdatingLocation()
         
+        println("Location Updating... \(self.locationManager)")
+        
+        // Perform the segue named GymSearch
         performSegueWithIdentifier("GymSearch", sender: self)
     }
     
+    /*
+    ------------------------------------------
+    MARK: - CLLocationManager Delegate Methods
+    ------------------------------------------
+    */
+    
+    //---------------------------------------------------------
+    // Tells the delegate that a new location data is available
+    //---------------------------------------------------------
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        
+        println("locationManager()") //DEBUG
+        
+        /*
+        The objects in the given locations array are ordered with respect to their occurrence times.
+        Therefore, the most recent location update is at the end of the array; hence, we access the last object.
+        */
+        let lastObjectAtIndex = locations.count - 1
+        var currentLocation: CLLocation = locations[lastObjectAtIndex] as CLLocation
+        
+        // Obtain current location's latitude in degrees
+        var latitudeValue = currentLocation.coordinate.latitude
+        
+        // Obtain current location's longitude in degrees
+        var longitudeValue = currentLocation.coordinate.longitude
+        
+        // Stops the generation of location updates since we do not need it anymore
+        manager.stopUpdatingLocation()
+        
+        gymSearchURLtoPassDown = mapsHtmlFilePath! + "?n=Current+Location&lat=\(latitudeValue)&lng=\(longitudeValue)&maptype=ROADMAP&zoom=16"
+        
+        println("gym search URL created: \(gymSearchURLtoPassDown)") //DEBUG
+        
+        // Perform the segue named GymSearch
+        performSegueWithIdentifier("GymSearch", sender: self)
+    }
+    
+    //-----------------------------------------------------
+    // Tells the delegate that location data is unavailable
+    //-----------------------------------------------------
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        
+        // Stops the generation of location updates since error occurred
+        manager.stopUpdatingLocation()
+        
+        // Instantiate an alert view object
+        var alertView = UIAlertView()
+        
+        alertView.title = "Unable to Locate!"
+        alertView.message = "An error occurred while trying to determine your location: \(error.localizedDescription)"
+        alertView.delegate = nil
+        alertView.addButtonWithTitle("OK")
+        
+        alertView.show()
+        
+        return
+    }
+
     
     /*
-    ---------------------------
+    ==========================================================================================================
     MARK: - Unwind Segue Method
-    ---------------------------
+    ==========================================================================================================
     */
+    
+    //-----------------------------------------------
+    // Unwind method called by downstream controllers
+    //-----------------------------------------------
     @IBAction func unwindToGymViewController (segue : UIStoryboardSegue) {
         
         // adding a gym
@@ -362,9 +493,9 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     /*
-    ===========================
+    ==============================================================================================================
     MARK: - Picker View Methods
-    ===========================
+    ==============================================================================================================
     */
     
     
@@ -463,11 +594,10 @@ class MyGymsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
 
     
-    /*
-    ------------------------------------------------
-    MARK: - Show Alert View Displaying Error Message
-    ------------------------------------------------
-    */
+    
+    //-----------------------------------------
+    // Show Alert View Displaying Error Message
+    //-------------------------------------------
     func showErrorMessage(errorMessage: String) {
         
         // Instantiate an alert view object
