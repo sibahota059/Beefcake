@@ -2,11 +2,37 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>My Workout</key>
-	<array>
-		<string>Treadmill</string>
-		<string>Chest Press</string>
-		<string>Arm Curls</string>
-	</array>
+	<key>1</key>
+	<dict>
+		<key>My Workout</key>
+		<dict>
+			<key>1</key>
+			<string>Elliptical Trainer</string>
+			<key>2</key>
+			<string>Leg Press</string>
+			<key>3</key>
+			<string>Chest Press</string>
+		</dict>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>Legs Day</key>
+		<dict>
+			<key>1</key>
+			<string>Elliptical Trainer</string>
+			<key>2</key>
+			<string>Leg Press</string>
+		</dict>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>Arms Day</key>
+		<dict>
+			<key>1</key>
+			<string>Elliptical Trainer</string>
+			<key>2</key>
+			<string>Chest Press</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

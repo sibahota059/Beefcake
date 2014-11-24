@@ -23,13 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Dictionary < GymName : String , GymData : [String] >
     var dict_GymName_GymData: NSMutableDictionary = NSMutableDictionary.alloc()
     
-    // Dictionary < MyWorkouts : String , Activities : Dict >
-    var dict_Workout_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
+    // Dictionary < WorkoutOrderNumber : String , Dict : NSMutableDictionary >
+    var dict_WorkoutOrderNumber_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
     
-    //My Muscles Dictionary < Muscle : String , Level : Integer >
+    // My Muscles Dictionary < Muscle : String , Level : Integer >
     var dict_Muscle_Level: NSMutableDictionary = NSMutableDictionary.alloc()
     
 
+    //------------------------------------------------------------------
+    // Main appication function: fired when application finishes loading
+    //------------------------------------------------------------------
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         
         // obtain the document paths
@@ -106,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if var myWorkoutsPlistFilePathInDocumentDirectory = myWorkoutsDictionaryFromFile {
             
             // MyWorkouts.plist exists in the Document directory
-            dict_Workout_Dict = myWorkoutsPlistFilePathInDocumentDirectory
+            dict_WorkoutOrderNumber_Dict = myWorkoutsPlistFilePathInDocumentDirectory
             
         } else {
             
@@ -119,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var myWorkoutsDictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: myWorkoutsPlistFilePathInMainBundle!)
             
             // Typecast the created NSDictionary as Dictionary type and assign it to the property
-            dict_Workout_Dict = myWorkoutsDictionaryFromFileInMainBundle!
+            dict_WorkoutOrderNumber_Dict = myWorkoutsDictionaryFromFileInMainBundle!
         }
         return true
     }
@@ -149,7 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dict_GymName_GymData.writeToFile(myGymsPlistFilePathInDocumentDirectory, atomically: true)
         
         // Write the dictionary to the MyWorkouts.plist file in the Document directory
-        dict_Workout_Dict.writeToFile(myWorkoutsPlistFilePathInDocumentDirectory, atomically: true)
+        dict_WorkoutOrderNumber_Dict.writeToFile(myWorkoutsPlistFilePathInDocumentDirectory, atomically: true)
         
         /*
         The flag "atomically" specifies whether the file should be written atomically or not.
