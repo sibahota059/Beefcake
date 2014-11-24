@@ -3,20 +3,46 @@
 <plist version="1.0">
 <dict>
 	<key>Strength</key>
-	<dict/>
-	<key>Bench Press</key>
-	<string></string>
-	<key>Arm Curls</key>
-	<string></string>
-	<key>Chest Press</key>
-	<string></string>
+	<dict>
+		<key>Chest Press</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>Arm Curls</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>Bench Press</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+	</dict>
 	<key>Cardio</key>
-	<dict/>
-	<key>Running</key>
-	<string></string>
-	<key>Treadmill</key>
-	<string></string>
-	<key>Eliptical Trainer</key>
-	<string></string>
+	<dict>
+		<key>Eliptical Trainer</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>Treadmill</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>Running</key>
+		<array>
+			<string></string>
+			<string></string>
+			<string></string>
+		</array>
+	</dict>
 </dict>
 </plist>
