@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MultiAddWorkoutViewController: UIViewController {
+class MultiAddActivityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -697,29 +697,77 @@
         <!--New Workout-->
         <scene sceneID="nZD-ju-RcG">
             <objects>
-                <viewController title="New Workout" id="tk0-cO-8hh" customClass="MultiAddWorkoutViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="New Workout" id="tk0-cO-8hh" customClass="NewWorkoutViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DY9-rw-EN3"/>
                         <viewControllerLayoutGuide type="bottom" id="ECd-Gk-ai0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5A9-EX-Kg6">
+                    <view key="view" contentMode="scaleToFill" id="5A9-EX-Kg6" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax7-sH-rG0">
+                                <rect key="frame" x="148" y="96" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter name for your new workout here" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qU8-fz-ij0">
+                                <rect key="frame" x="16" y="125" width="382" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tk0-cO-8hh" id="49m-I8-gah"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXh-Hm-v0v">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHg-kt-aah">
+                                <rect key="frame" x="158" y="228" width="95" height="30"/>
+                                <state key="normal" title="Add Activities">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addActivities:" destination="tk0-cO-8hh" eventType="touchUpInside" id="Mzd-41-W4O"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Activities To Add To This Workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rli-1K-yZJ">
+                                <rect key="frame" x="51" y="199" width="309" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Workout" id="8k9-6O-AN8">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Heo-R1-MP8">
+                            <connections>
+                                <action selector="save:" destination="tk0-cO-8hh" id="VvN-KP-JA5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <segue destination="orl-Pn-mDe" kind="show" identifier="ShowActivities" id="gnl-gE-RZ8"/>
+                        <outlet property="addActivitiesButton" destination="yHg-kt-aah" id="VL1-a2-9VE"/>
+                        <outlet property="nameTextField" destination="qU8-fz-ij0" id="iwG-bi-LlX"/>
+                        <outlet property="saveButton" destination="Heo-R1-MP8" id="xdp-09-yd9"/>
+                        <segue destination="orl-Pn-mDe" kind="show" identifier="AddActivities" id="gnl-gE-RZ8"/>
+                        <segue destination="K4a-Hb-Tvx" kind="unwind" identifier="NewWorkout-Save" unwindAction="unwindToMyWorkoutsTableViewController:" id="Z7D-nF-Thw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nW-af-zar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="K4a-Hb-Tvx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2157" y="-2370"/>
         </scene>
         <!--Activities-->
         <scene sceneID="Dxq-8l-RLH">
             <objects>
-                <viewController title="Activities" id="orl-Pn-mDe" customClass="ActivitiesTableViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Activities" id="orl-Pn-mDe" customClass="MultiAddActivityViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GHl-4I-bRC"/>
                         <viewControllerLayoutGuide type="bottom" id="hfI-vj-psK"/>
@@ -758,16 +806,23 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Multi-Add Activities" id="5xY-xb-gDg">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Vfv-K4-c8B"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <segue destination="qNR-ZN-UYW" kind="unwind" identifier="MutiAdd-Save" unwindAction="unwindToMyWorkoutsTableViewController:" id="Qmh-vb-a2Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7e-5p-3l0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qNR-ZN-UYW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3015" y="-2836"/>
         </scene>
         <!--Workout Name-->
         <scene sceneID="k8v-uE-LHG">
             <objects>
-                <viewController title="Workout Name" id="xXm-hP-ssp" sceneMemberID="viewController">
+                <viewController title="Workout Name" id="xXm-hP-ssp" customClass="WorkoutTableViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tIQ-CH-DOf"/>
                         <viewControllerLayoutGuide type="bottom" id="EAe-i0-nld"/>
@@ -777,6 +832,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Workout Name" id="4Tz-Uh-3Br"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="fVt-cJ-F4V" kind="show" identifier="WorkoutInfo" id="T8I-n3-o7z"/>
