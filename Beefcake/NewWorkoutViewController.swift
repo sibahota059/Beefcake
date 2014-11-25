@@ -73,7 +73,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "AddActivities" {
         
         // Obtain the object reference of the destination (downstream) view controller
-        var multiAddActivityViewController: MultiAddActivityViewController = segue.destinationViewController as MultiAddActivityViewController
+        var multiAddActivityTableViewController: MultiAddActivityTableViewController = segue.destinationViewController as MultiAddActivityTableViewController
         
         // pass the data object to the downsteam view controller
         // multiAddActivityViewController.somethingThere = self.somethingHere

@@ -767,7 +767,7 @@
         <!--Activities-->
         <scene sceneID="Dxq-8l-RLH">
             <objects>
-                <viewController title="Activities" id="orl-Pn-mDe" customClass="MultiAddActivityViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Activities" id="orl-Pn-mDe" customClass="MultiAddActivityTableViewController" customModule="Beefcake" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GHl-4I-bRC"/>
                         <viewControllerLayoutGuide type="bottom" id="hfI-vj-psK"/>
@@ -802,6 +802,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="orl-Pn-mDe" id="Dp1-sX-iKE"/>
+                                    <outlet property="delegate" destination="orl-Pn-mDe" id="chE-CB-Dbg"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
@@ -811,6 +815,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="myWorkoutsTableView" destination="4XX-Hz-x3z" id="d1R-sP-M0y"/>
                         <segue destination="qNR-ZN-UYW" kind="unwind" identifier="MutiAdd-Save" unwindAction="unwindToMyWorkoutsTableViewController:" id="Qmh-vb-a2Q"/>
                     </connections>
                 </viewController>

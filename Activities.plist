@@ -5,8 +5,7 @@
 	<key>Weight Training</key>
 	<dict>
 		<key>Squat</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<real>0.5</real>
 				<integer>1</integer>
@@ -24,19 +23,17 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Quads</string>
 				<string>Glutes</string>
 				<string>Hips</string>
 				<string>Abs</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Leg Press</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<real>0.5</real>
 				<integer>1</integer>
@@ -54,17 +51,15 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Quads</string>
 				<string>Glutes</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Lunge</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>1</integer>
@@ -82,19 +77,17 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Quads</string>
 				<string>Hams</string>
 				<string>Glutes</string>
 				<string>Hips</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Deadlift</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<string>1</string>
@@ -112,7 +105,6 @@
 				<real>0.5</real>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Quads</string>
 				<string>Hams</string>
@@ -120,12 +112,11 @@
 				<string>Hips</string>
 				<string>Lower Back</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Leg Extension</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>1</integer>
@@ -143,16 +134,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Quads</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Leg Curl</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<real>0.5</real>
 				<real>0</real>
@@ -170,16 +159,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Quads</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Standing Calf Raise</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>1</integer>
 				<integer>0</integer>
@@ -197,16 +184,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Calves</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Seated Calf Raise</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>1</integer>
 				<integer>0</integer>
@@ -224,16 +209,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Calves</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Hip Adductor</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -251,16 +234,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Hips</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Bench Press</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -278,17 +259,15 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Pecs</string>
 				<string>Triceps</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Chest Fly</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -306,16 +285,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Pecs</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Push-Up</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -333,18 +310,16 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Pecs</string>
 				<string>Delts</string>
 				<string>Triceps</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Pulldown</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -362,16 +337,14 @@
 				<real>0.5</real>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Lats</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Pull-Up</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -389,16 +362,14 @@
 				<real>0.5</real>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Lats</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Bent-Over Row</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<string>0</string>
@@ -416,16 +387,14 @@
 				<real>0.5</real>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Lats</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Upright Row</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -443,17 +412,15 @@
 				<real>0.5</real>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Traps</string>
 				<string>Delts</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Shoulder Press</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -471,16 +438,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Delts</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Shoulder Fly</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -498,16 +463,14 @@
 				<real>0.5</real>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Delts</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Lateral Raise</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -525,16 +488,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Delts</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Shoulder Shrug</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -552,16 +513,14 @@
 				<real>0.5</real>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Traps</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Pushdown</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -579,16 +538,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Triceps</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Triceps Extension</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -606,16 +563,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Triceps</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Biceps Curl</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -633,16 +588,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Biceps</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Crunch</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -660,16 +613,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Abs</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Russian Twist</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -687,16 +638,14 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Abs</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Leg Raise</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -714,17 +663,15 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Hips</string>
 				<string>Abs</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Back Extension</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -742,20 +689,18 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>main groups</key>
 			<array>
 				<string>Lower Back</string>
 				<string>Glutes</string>
 			</array>
-			<key>url</key>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 	</dict>
 	<key>Cardiovascular</key>
 	<dict>
 		<key>Eliptical Trainer</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -773,12 +718,15 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>url</key>
+			<array>
+				<string>Hams</string>
+				<string>Calves</string>
+			</array>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 		<key>Treadmill</key>
-		<dict>
-			<key>muscles</key>
+		<array>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
@@ -796,9 +744,13 @@
 				<integer>0</integer>
 				<integer>0</integer>
 			</array>
-			<key>url</key>
+			<array>
+				<string>Hams</string>
+				<string>Calves</string>
+			</array>
 			<string>http://</string>
-		</dict>
+			<string>workout_icon.png</string>
+		</array>
 	</dict>
 </dict>
 </plist>

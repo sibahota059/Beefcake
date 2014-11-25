@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Create and Initialize the Application NSMutableDictionaries
     //------------------------------------------------------------
     
-    // Dictionary < Activity : String , Type : Dict >
-    var dict_Activity_Dict : NSMutableDictionary = NSMutableDictionary.alloc()
+    // Dictionary < ActivityGroup : String , Type : Dict >
+    var dict_ActivityGroup_Dict : NSMutableDictionary = NSMutableDictionary.alloc()
     
     // Dictionary < GymName : String , GymData : [String] >
     var dict_GymName_GymData: NSMutableDictionary = NSMutableDictionary.alloc()
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if var activitiesPlistFilePathInDocumentDirectory = activitesDictionaryFromFile {
             
             // Activites.plist exists in the Document directory
-            dict_Activity_Dict = activitiesPlistFilePathInDocumentDirectory
+            dict_ActivityGroup_Dict = activitiesPlistFilePathInDocumentDirectory
             
         } else {
             
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var activitesDictionaryFromFileInMainBundle: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: activitiesPlistFilePathInMainBundle!)
             
             // Typecast the created NSDictionary as Dictionary type and assign it to the property
-            dict_Activity_Dict = activitesDictionaryFromFileInMainBundle!
+            dict_ActivityGroup_Dict = activitesDictionaryFromFileInMainBundle!
         }
         
         // myGyms plist
@@ -146,7 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Write the dictionary to the Activites.plist file in the Document directory
-        dict_Activity_Dict.writeToFile(activitiesPlistFilePathInDocumentDirectory, atomically: true)
+        dict_ActivityGroup_Dict.writeToFile(activitiesPlistFilePathInDocumentDirectory, atomically: true)
         
         // Write the dictionary to the MyGyms.plist file in the Document directory
         dict_GymName_GymData.writeToFile(myGymsPlistFilePathInDocumentDirectory, atomically: true)
