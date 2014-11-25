@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>names</key>
+	<array>
+		<string>Calves</string>
+		<string>Quadriceps</string>
+		<string>Hamstrings</string>
+		<string>Gluteus</string>
+		<string>Hips</string>
+		<string>Lower Back</string>
+		<string>Lats</string>
+		<string>Trapezius</string>
+		<string>Abdominals</string>
+		<string>Pectorals</string>
+		<string>Deltoids</string>
+		<string>Triceps</string>
+		<string>Biceps</string>
+		<string>Forearms</string>
+		<string>Heart</string>
+	</array>
+	<key>values</key>
+	<array>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+		<integer>0</integer>
+	</array>
+</dict>
+</plist>

@@ -11,7 +11,7 @@
 			<key>2</key>
 			<string>Leg Press</string>
 			<key>3</key>
-			<string>Chest Press</string>
+			<string>Bench Press</string>
 		</dict>
 	</dict>
 	<key>2</key>
@@ -19,9 +19,11 @@
 		<key>Legs Day</key>
 		<dict>
 			<key>1</key>
-			<string>Elliptical Trainer</string>
+			<string>Leg Raise</string>
 			<key>2</key>
-			<string>Leg Press</string>
+			<string>Leg Extension</string>
+			<key>3</key>
+			<string>Dead Lift</string>
 		</dict>
 	</dict>
 	<key>3</key>
@@ -29,9 +31,11 @@
 		<key>Arms Day</key>
 		<dict>
 			<key>1</key>
-			<string>Elliptical Trainer</string>
+			<string>Biceps Curl</string>
 			<key>2</key>
-			<string>Chest Press</string>
+			<string>Chest Fly</string>
+			<key>3</key>
+			<string>Pushdown</string>
 		</dict>
 	</dict>
 </dict>
