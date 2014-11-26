@@ -49,9 +49,9 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    //========================================================================
+    //==========================================================================
     // Navigation Methods
-    //========================================================================
+    //==========================================================================
     
     
     
@@ -60,7 +60,19 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     //-----------------------------------------------
     @IBAction func unwindToNewWorkoutViewController (segue : UIStoryboardSegue) {
         
-        println("Unwound to New Workout")
+        if segue.identifier == "AddActivities-Cancel" {
+            
+            // Do Nothing, the user has canceled the multi-add
+            
+            println( "Segue -> AddActivities-Cancel")
+        }
+        
+        if segue.identifier == "AddActivities-Save" {
+            
+            //TODO
+            // Add the selected activities to this new workout
+            println( "Segue -> AddActivities-Save")
+        }
         
     }
     
@@ -69,18 +81,12 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     // Segue Preparation Method
     //-------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        
         if segue.identifier == "AddActivities" {
-        
-        // Obtain the object reference of the destination (downstream) view controller
-        var multiAddActivityTableViewController: MultiAddActivityTableViewController = segue.destinationViewController as MultiAddActivityTableViewController
-        
-        // pass the data object to the downsteam view controller
-        // multiAddActivityViewController.somethingThere = self.somethingHere
+
+            // Do Nothing
         }
-        
     }
-    
     
     //----------------------------------------------------------------------------
     // Save method for validating data, adding relevant new data to the plist file

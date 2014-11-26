@@ -46,6 +46,7 @@ class MyWorkoutsTableViewController: UITableViewController {
     // function for setup when this view loads
     //----------------------------------------
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Preserve selection between presentations

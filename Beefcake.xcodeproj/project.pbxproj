@@ -11,7 +11,6 @@
 		940771771A2378F200D1B0FD /* WorkoutInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940771761A2378F200D1B0FD /* WorkoutInfoViewController.swift */; };
 		940AC1A51A24FCFD00898F46 /* MyMuscles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 940AC1A41A24FCFD00898F46 /* MyMuscles.plist */; };
 		940AC1A71A25096700898F46 /* MyActivities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 940AC1A61A25096700898F46 /* MyActivities.plist */; };
-		940AC1A91A251FC100898F46 /* MultiAddActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940AC1A81A251FC100898F46 /* MultiAddActivityTableViewController.swift */; };
 		945227131A11048600B04DB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945227121A11048600B04DB8 /* Images.xcassets */; };
 		945371631A214608005B7903 /* GymSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945371621A214608005B7903 /* GymSearchViewController.swift */; };
 		94588F231A1E89F700CA7F52 /* Activities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94588F221A1E89F700CA7F52 /* Activities.plist */; };
@@ -23,6 +22,7 @@
 		94588F2F1A1E8EA500CA7F52 /* GymWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94588F2E1A1E8EA500CA7F52 /* GymWebViewController.swift */; };
 		94588F321A1E976700CA7F52 /* maps.html in Resources */ = {isa = PBXBuildFile; fileRef = 94588F311A1E976700CA7F52 /* maps.html */; };
 		94588F341A1E98EC00CA7F52 /* EditGymViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94588F331A1E98EC00CA7F52 /* EditGymViewController.swift */; };
+		947AED6F1A262EB100897E4A /* MultiAddActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947AED6E1A262EB100897E4A /* MultiAddActivitiesTableViewController.swift */; };
 		948420B21A226DFE00C35DCC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948420B11A226DFE00C35DCC /* CoreLocation.framework */; };
 		948E72B41A227665002D2AF7 /* MyWorkoutsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E72B31A227665002D2AF7 /* MyWorkoutsTableViewController.swift */; };
 		94DF31931A23DF36000F8283 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DF31921A23DF36000F8283 /* NewWorkoutViewController.swift */; };
@@ -48,7 +48,6 @@
 		940771761A2378F200D1B0FD /* WorkoutInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutInfoViewController.swift; sourceTree = "<group>"; };
 		940AC1A41A24FCFD00898F46 /* MyMuscles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MyMuscles.plist; sourceTree = "<group>"; };
 		940AC1A61A25096700898F46 /* MyActivities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MyActivities.plist; sourceTree = "<group>"; };
-		940AC1A81A251FC100898F46 /* MultiAddActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiAddActivityTableViewController.swift; sourceTree = "<group>"; };
 		945227121A11048600B04DB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		945371621A214608005B7903 /* GymSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymSearchViewController.swift; sourceTree = "<group>"; };
 		94588F221A1E89F700CA7F52 /* Activities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Activities.plist; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		94588F2E1A1E8EA500CA7F52 /* GymWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymWebViewController.swift; sourceTree = "<group>"; };
 		94588F311A1E976700CA7F52 /* maps.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = maps.html; sourceTree = "<group>"; };
 		94588F331A1E98EC00CA7F52 /* EditGymViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGymViewController.swift; sourceTree = "<group>"; };
+		947AED6E1A262EB100897E4A /* MultiAddActivitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiAddActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		948420B11A226DFE00C35DCC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		948E72B31A227665002D2AF7 /* MyWorkoutsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWorkoutsTableViewController.swift; sourceTree = "<group>"; };
 		94DF31921A23DF36000F8283 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			children = (
 				948E72B31A227665002D2AF7 /* MyWorkoutsTableViewController.swift */,
 				94DF31921A23DF36000F8283 /* NewWorkoutViewController.swift */,
-				940AC1A81A251FC100898F46 /* MultiAddActivityTableViewController.swift */,
+				947AED6E1A262EB100897E4A /* MultiAddActivitiesTableViewController.swift */,
 				940771701A23738200D1B0FD /* EditWorkoutTableViewController.swift */,
 				940771761A2378F200D1B0FD /* WorkoutInfoViewController.swift */,
 			);
@@ -337,12 +337,12 @@
 				94DF31931A23DF36000F8283 /* NewWorkoutViewController.swift in Sources */,
 				94588F291A1E8E6C00CA7F52 /* MyGymsViewController.swift in Sources */,
 				94588F2F1A1E8EA500CA7F52 /* GymWebViewController.swift in Sources */,
-				940AC1A91A251FC100898F46 /* MultiAddActivityTableViewController.swift in Sources */,
 				94E330D01A10FB8F00635208 /* AppDelegate.swift in Sources */,
 				945371631A214608005B7903 /* GymSearchViewController.swift in Sources */,
 				94588F341A1E98EC00CA7F52 /* EditGymViewController.swift in Sources */,
 				94588F2D1A1E8E9700CA7F52 /* GymMapViewController.swift in Sources */,
 				940771711A23738200D1B0FD /* EditWorkoutTableViewController.swift in Sources */,
+				947AED6F1A262EB100897E4A /* MultiAddActivitiesTableViewController.swift in Sources */,
 				940771771A2378F200D1B0FD /* WorkoutInfoViewController.swift in Sources */,
 				94DF31951A23F2DC000F8283 /* WorkoutTableViewController.swift in Sources */,
 			);

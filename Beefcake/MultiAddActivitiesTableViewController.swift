@@ -1,21 +1,21 @@
 //
-//  MultiAddActivityTableViewController.swift
+//  MultiAddActivitiesTableViewController.swift
 //  Beefcake
 //
-//  Created by Ryan Connors on 11/25/14.
+//  Created by Ryan Connors on 11/26/14.
 //  Copyright (c) 2014 Ryan Connors. All rights reserved.
 //
 
 import UIKit
 
-class MultiAddActivityTableViewController: UITableViewController {
+class MultiAddActivitiesTableViewController: UITableViewController {
 
     //-----------
     // UI Objects
     //-----------
     
     // Obtain the object reference to the UITableView object
-    @IBOutlet var myWorkoutsTableView: UITableView!
+    @IBOutlet var activitiesTableView: UITableView!
     
     
     //-----------------
@@ -32,7 +32,7 @@ class MultiAddActivityTableViewController: UITableViewController {
     var activityNames = [String]()
     
     // dataObjectToPass is the data object to pass back up to the upstream view controller
-    var dataObjectToPassToEditWorkout = [String]()
+    var dataObjectToPassToNewWorkout = [String]()
     
     
     
@@ -44,10 +44,14 @@ class MultiAddActivityTableViewController: UITableViewController {
     // function for setup when this view loads
     //----------------------------------------
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
+        
+        // allow for multiple selection
+        self.tableView.allowsMultipleSelection = true
         
         // Set the title of this ViewController
         self.title = "Activities"
@@ -148,6 +152,16 @@ class MultiAddActivityTableViewController: UITableViewController {
         // Set the cell title to be the activity name
         cell.textLabel.text = givenActivity
         
+        // ????????????????????????????????????????????????????????????????????????
+        // check for selection of this activity, and set the checkmark accordingly
+        if contains(dataObjectToPassToNewWorkout, givenActivity) {
+            cell.accessoryType = .Checkmark
+        }
+        else {
+            cell.accessoryType = .None
+        }
+        // ????????????????????????????????????????????????????????????????????????
+        
         // Set the cell subtitle to be the workout activities
         var mainMuscles = activityData[1] as [String]
         cell.detailTextLabel?.text = ", ".join(mainMuscles)
@@ -156,6 +170,18 @@ class MultiAddActivityTableViewController: UITableViewController {
         cell.imageView.image = UIImage(named: activityData[3] as String)
         
         return cell
+    }
+    
+    /*
+    ----------------------------
+    Set Title for Section Header
+    ----------------------------
+    */
+    
+    // Set the table view section header to be the genre name
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
+        
+        return groupNames[section]
     }
     
     
@@ -209,7 +235,14 @@ class MultiAddActivityTableViewController: UITableViewController {
         // Obtain the name of the selected activity
         var activityName = activityNames[rowNumber]
         
-        //???????????????????????? NOW WHAT ???????????????????????????????????
+        // Add/Remove the name of the selected activity to the activity array
+        var i = find(dataObjectToPassToNewWorkout, activityName)
+        if (i == nil) {
+            dataObjectToPassToNewWorkout.append(activityName)
+        }
+        else {
+            dataObjectToPassToNewWorkout.removeAtIndex(i!)
+        }
     }
     
     
@@ -227,17 +260,27 @@ class MultiAddActivityTableViewController: UITableViewController {
     //--------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        println("preparing for segue")
-    }
-    
-    
-    //--------------------
-    // Unwind Segue Method
-    //--------------------
-    @IBAction func unwindToMyMoviesTableViewController (segue : UIStoryboardSegue) {
+        //Do Something?
         
-        println("unwinding")
     }
+    
+    
+    //------------------------------------------------
+    // Method called when user presses the Save button
+    //------------------------------------------------
+    @IBAction func saveButtonPressed(sender: AnyObject) {
+        
+        performSegueWithIdentifier("AddActivities-Save", sender: self)
+
+    }
+    
+    
+    @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+        
+        performSegueWithIdentifier("AddActivities-Cancel", sender: self)
+
+    }
+
     
     
     //=======================
@@ -259,5 +302,4 @@ class MultiAddActivityTableViewController: UITableViewController {
         
         alertView.show()
     }
-
 }
