@@ -68,13 +68,13 @@ class MyWorkoutsTableViewController: UITableViewController {
         var myWorkoutsDict = applicationDelegate.dict_WorkoutOrderNumber_Dict
         
         // Obtain the names of MyWorkouts from the appDelegate dictionary
-        for var index = 1; index <= myWorkoutsDict.count; ++index {
+        for var i = 1; i <= myWorkoutsDict.count; ++i {
             
-            var workoutDict = myWorkoutsDict.objectForKey(String(index)) as NSMutableDictionary
+            var workoutDict = myWorkoutsDict.objectForKey(String(i)) as NSMutableDictionary
         
-            var keyArray = workoutDict.allKeys as [String]
+            var workout = workoutDict.allKeys as [String]
             
-            workoutNames.append(keyArray[0])
+            workoutNames.append(workout[0])
         }
         
     }
@@ -195,16 +195,21 @@ class MyWorkoutsTableViewController: UITableViewController {
     //----------------------------------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        if segue.identifier == "NewWorkout" {
+        if segue.identifier == "AddWorkout" {
+                    
+            // Obtain the object reference of the destination (downstream) view controller
+            var newWorkoutViewController: NewWorkoutViewController = segue.destinationViewController as NewWorkoutViewController
             
-            //Do Nothing
-            
+            // pass the workout names to the downsteam view controller
+            newWorkoutViewController.workoutNames = self.workoutNames
         }
+            
         else if segue.identifier == "EditWorkout" {
             
             //TODO
             
         }
+            
         else if segue.identifier == "StartWorkout" {
             
             //TODO

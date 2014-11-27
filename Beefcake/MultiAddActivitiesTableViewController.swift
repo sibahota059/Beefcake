@@ -31,8 +31,8 @@ class MultiAddActivitiesTableViewController: UITableViewController {
     // variable for holding Activity names
     var activityNames = [String]()
     
-    // dataObjectToPass is the data object to pass back up to the upstream view controller
-    var dataObjectToPassToNewWorkout = [String]()
+    // Array of selected activities to pass back up to the upstream view controller
+    var selectedActivities = [String]()
     
     
     
@@ -72,8 +72,6 @@ class MultiAddActivitiesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
     //==========================================================================
     // MARK: - Table View Data Source Protocol Methods
@@ -154,7 +152,7 @@ class MultiAddActivitiesTableViewController: UITableViewController {
         
         // ????????????????????????????????????????????????????????????????????????
         // check for selection of this activity, and set the checkmark accordingly
-        if contains(dataObjectToPassToNewWorkout, givenActivity) {
+        if contains(selectedActivities, givenActivity) {
             cell.accessoryType = .Checkmark
         }
         else {
@@ -236,12 +234,13 @@ class MultiAddActivitiesTableViewController: UITableViewController {
         var activityName = activityNames[rowNumber]
         
         // Add/Remove the name of the selected activity to the activity array
-        var i = find(dataObjectToPassToNewWorkout, activityName)
+        var i = find(selectedActivities, activityName)
+        
         if (i == nil) {
-            dataObjectToPassToNewWorkout.append(activityName)
+            selectedActivities.append(activityName)
         }
         else {
-            dataObjectToPassToNewWorkout.removeAtIndex(i!)
+            selectedActivities.removeAtIndex(i!)
         }
     }
     
@@ -260,7 +259,15 @@ class MultiAddActivitiesTableViewController: UITableViewController {
     //--------------------------------------------------------------------------
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        //Do Something?
+        if (segue.identifier == "AddActivities-Save") {
+            
+           println("Selected Activities: \(selectedActivities)")
+        }
+        
+        if (segue.identifier == "AddActivities-Cancel") {
+            
+            println("Selected Activities: \(selectedActivities)")
+        }
         
     }
     
@@ -270,13 +277,24 @@ class MultiAddActivitiesTableViewController: UITableViewController {
     //------------------------------------------------
     @IBAction func saveButtonPressed(sender: AnyObject) {
         
-        performSegueWithIdentifier("AddActivities-Save", sender: self)
-
+        if (selectedActivities.count == 0) {
+            
+            showErrorMessage("You must select activities to add to this workout")
+            return
+        }
+        else {
+            
+            performSegueWithIdentifier("AddActivities-Save", sender: self)
+        }
     }
     
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         
+        // empty the selectedActivities array
+        selectedActivities.removeAll(keepCapacity: false)
+        
+        // perform the segue
         performSegueWithIdentifier("AddActivities-Cancel", sender: self)
 
     }

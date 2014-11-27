@@ -21,6 +21,21 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var saveButton: UIBarButtonItem!
     
     
+    //-----------------
+    // Global Variables
+    //-----------------
+    
+    // Obtain the object reference to the App Delegate object
+    let applicationDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    
+    // name of the workout to add
+    var workoutToAdd: String = ""
+    
+    var workoutNames = [String]()
+    
+    var activitiesToAdd = [String]()
+    
+    
     //=====================================================================
     // MARK: - View Life Cycle
     //=====================================================================
@@ -34,7 +49,6 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         
         // Designate self as a subscriber to Keyboard Notifications
         registerForKeyboardNotifications()
-
     }
 
     //------------------------
@@ -46,8 +60,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+
     
     //==========================================================================
     // Navigation Methods
@@ -62,18 +75,18 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         
         if segue.identifier == "AddActivities-Cancel" {
             
-            // Do Nothing, the user has canceled the multi-add
-            
-            println( "Segue -> AddActivities-Cancel")
+            // remove any entries to the ativitiesToAdd array
+            activitiesToAdd.removeAll(keepCapacity: false)
         }
         
         if segue.identifier == "AddActivities-Save" {
+
+            // get the downstream controller
+            var controller: MultiAddActivitiesViewController = segue.sourceViewController as MultiAddActivitiesViewController
             
-            //TODO
-            // Add the selected activities to this new workout
-            println( "Segue -> AddActivities-Save")
+            // obtain the activities added in the multi-add controller
+            activitiesToAdd = controller.selectedActivities
         }
-        
     }
     
     
@@ -83,8 +96,9 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "AddActivities" {
-
-            // Do Nothing
+            
+            // store the name of the workout to add
+            workoutToAdd = nameTextField.text
         }
     }
     
@@ -96,15 +110,50 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         // perform data validation prior to saving and unwinding
         if nameTextField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == ""
         {
-            showErrorMessage("Provide the New Workout Name")
+            showErrorMessage("Missing Data", errorMessage: "Provide the New Workout Name")
         }
         else {
             
-            //TODO
-            // perform data validation
+            // assert that the user has added activities to the new workout
+            if (activitiesToAdd.isEmpty) {
+                showErrorMessage("Missing Data", errorMessage: "You must first add activities to the new workout")
+                return
+            }
             
-            // unwind to MyWorkoutsTableViewController with the NewWorkout-Save
-            performSegueWithIdentifier("NewWorkout-Save", sender: self)
+            // add the newly created workout to MyWorkouts dictionary
+            else {
+                
+                // instantiate the new dictionary
+                var dict_Workout_Activities: NSMutableDictionary = NSMutableDictionary.alloc()
+                
+                // add all the activities to the dictionary
+                for (var i = 0; i < activitiesToAdd.count; ++i) {
+                    
+                     dict_Workout_Activities.setValue(activitiesToAdd[i], forKey: String(i + 1))
+                }
+                
+                // if the workout is already contained in the dictionary, remove it
+                if (contains(workoutNames, workoutToAdd)) {
+                    
+                    // remove the existing workout from MyWorkouts dictionary
+                    applicationDelegate.dict_WorkoutOrderNumber_Dict.removeObjectForKey(workoutToAdd)
+                }
+                
+                // get the current size of the Workout dict from the app delegate
+                var currentSize = applicationDelegate.dict_WorkoutOrderNumber_Dict.count
+                
+                // instantiate the new dictionary ordered by number
+                var dict_WorkoutOrderNum_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
+                
+                // insert the new workout dictionary into ordered workout dictionary
+                dict_WorkoutOrderNum_Dict.setValue(dict_Workout_Activities, forKey: workoutToAdd)
+                
+                //insert the new workout dictionary with the ordered key
+                applicationDelegate.dict_WorkoutOrderNumber_Dict.setValue(dict_WorkoutOrderNum_Dict, forKey: String(currentSize + 1))
+                
+                // unwind to MyWorkoutsTableViewController with the NewWorkout-Save
+                performSegueWithIdentifier("NewWorkout-Save", sender: self)
+            }
         }
     }
     
@@ -112,6 +161,9 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     // Method fired when user pressed the  Add Activities button
     //----------------------------------------------------------
     @IBAction func addActivities(sender: UIButton) {
+        
+        // alert the user that this workout will overwrite an existing workout
+        checkForOverwrite()
         
         performSegueWithIdentifier("AddActivities", sender: self)
     }
@@ -155,7 +207,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     //-----------------------------------------------------------
     func keyboardWillHide(sender: NSNotification) {
         
-        //Do Nothing
+        willOverwrite()
     }
 
     
@@ -206,7 +258,8 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     -----------------------------------------------------------*/
     func textFieldDidEndEditing(textField: UITextField!) {
         
-        // Do Nothing
+        // store the name of the workout to add
+        workoutToAdd = nameTextField.text
     }
     
     //----------------------------------------------------------------
@@ -214,16 +267,19 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     //----------------------------------------------------------------
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         
+        if (willOverwrite()) {
+            return false
+        }
+        
         // Deactivate the text field and remove the keyboard
         textField.resignFirstResponder()
-        
         return true
     }
     
     
-    //==============================================
+    //=============================================================================
     // MARK: - Register and Unregister Notifications
-    //==============================================
+    //=============================================================================
     
     
     //--------------------------------
@@ -241,18 +297,38 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+
     
-    /*
-    ------------------------------------------------
-    MARK: - Show Alert View Displaying Error Message
-    ------------------------------------------------
-    */
-    func showErrorMessage(errorMessage: String) {
+    //=============================================================================
+    // MARK: - Helper Functions
+    //=============================================================================
+    
+    //----------------------------------------------------------------------------
+    // Function for alerting the user that an existing workout will be overwritten
+    //----------------------------------------------------------------------------
+    func willOverwrite() -> Bool {
+        
+        // if a workout with this name already exists
+        if (contains(workoutNames, nameTextField.text)) {
+            
+            showErrorMessage("Overwriting Workout", errorMessage:
+                "A workout with this name already exists, proceeding will overwrite the existing workout")
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    //-----------------------------------------
+    // Show Alert View Displaying Error Message
+    //-----------------------------------------
+    func showErrorMessage(errorTitle: String, errorMessage: String) {
         
         // Instantiate an alert view object
         var alertView = UIAlertView()
         
-        alertView.title = "Necessary Data Missing!"
+        alertView.title = errorTitle
         alertView.message = errorMessage
         alertView.delegate = nil
         alertView.addButtonWithTitle("OK")
@@ -260,5 +336,4 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         alertView.show()
     }
     
-
 }
