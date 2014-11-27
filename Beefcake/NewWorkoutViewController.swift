@@ -82,7 +82,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "AddActivities-Save" {
 
             // get the downstream controller
-            var controller: MultiAddActivitiesViewController = segue.sourceViewController as MultiAddActivitiesViewController
+            var controller: MultiAddActivitiesTableViewController = segue.sourceViewController as MultiAddActivitiesTableViewController
             
             // obtain the activities added in the multi-add controller
             activitiesToAdd = controller.selectedActivities
@@ -163,7 +163,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addActivities(sender: UIButton) {
         
         // alert the user that this workout will overwrite an existing workout
-        checkForOverwrite()
+        willOverwrite()
         
         performSegueWithIdentifier("AddActivities", sender: self)
     }
