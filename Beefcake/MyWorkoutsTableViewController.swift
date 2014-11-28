@@ -184,9 +184,9 @@ class MyWorkoutsTableViewController: UITableViewController {
             var dict_WorkoutOrderNumber_Dict: NSMutableDictionary = applicationDelegate.dict_WorkoutOrderNumber_Dict as NSMutableDictionary
             
             // Delete the identified workout from the dictionary at the appropriate key for the row number *( + 1 accouting for zero)
-            dict_WorkoutOrderNumber_Dict.removeObjectForKey( (String(indexPath.row + 1)) )
+            dict_WorkoutOrderNumber_Dict.removeObjectForKey( (String(indexPath.row + 1)))
 
-            // Update the new dictionary of movies for the Genre in the Objective-C dictionary
+            // Update the new dictionary of workouts for the Genre in the Objective-C dictionary
             
             for var index = (indexPath.row + 1 + 1); index <= dict_WorkoutOrderNumber_Dict.count + 1; ++index {
                 
@@ -202,6 +202,9 @@ class MyWorkoutsTableViewController: UITableViewController {
             
             // update the application delegate dictionary
             applicationDelegate.dict_WorkoutOrderNumber_Dict = dict_WorkoutOrderNumber_Dict
+            
+            // re-load the workout names array
+            loadWorkoutNames()
             
             // Reload the rows and sections of the Table View myWorkoutsTableView
             myWorkoutsTableView.reloadData()
