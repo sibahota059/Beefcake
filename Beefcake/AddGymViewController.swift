@@ -141,6 +141,7 @@ class AddGymViewController: UIViewController, UITextFieldDelegate {
             activeTextField = nil
         }
         else {
+            
             // do nothing
         }
     }

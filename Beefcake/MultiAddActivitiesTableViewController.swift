@@ -261,12 +261,12 @@ class MultiAddActivitiesTableViewController: UITableViewController {
         
         if (segue.identifier == "AddActivities-Save") {
             
-           println("Selected Activities: \(selectedActivities)")
+            // No preparation necessary
         }
         
         if (segue.identifier == "AddActivities-Cancel") {
             
-            println("Selected Activities: \(selectedActivities)")
+            // no preparation necessary
         }
         
     }

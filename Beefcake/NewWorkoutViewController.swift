@@ -31,8 +31,10 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     // name of the workout to add
     var workoutToAdd: String = ""
     
+    // names of MyWorkouts
     var workoutNames = [String]()
     
+    // activities added to the new workout
     var activitiesToAdd = [String]()
     
     
@@ -106,54 +108,56 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate {
     // Save method for validating data, adding relevant new data to the plist file
     //----------------------------------------------------------------------------
     @IBAction func save(sender: UIBarButtonItem) {
-        
+                
         // perform data validation prior to saving and unwinding
-        if nameTextField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == ""
-        {
+        
+        //assert that the workout name has been set
+        if (nameTextField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())) == "" {
             showErrorMessage("Missing Data", errorMessage: "Provide the New Workout Name")
+            return
         }
+        
+        //assert that the user has added activities to the workout
+        if (activitiesToAdd.isEmpty) {
+            
+            showErrorMessage("Missing Data", errorMessage: "You must select activities to add to this workout")
+            return
+        }
+        
+            
+        // add the newly created workout to MyWorkouts dictionary
         else {
             
-            // assert that the user has added activities to the new workout
-            if (activitiesToAdd.isEmpty) {
-                showErrorMessage("Missing Data", errorMessage: "You must first add activities to the new workout")
-                return
+            // instantiate the new dictionary
+            var dict_Workout_Activities: NSMutableDictionary = NSMutableDictionary()
+
+            // add all the activities to the dictionary
+            for (var i = 0; i < activitiesToAdd.count; ++i) {
+                
+                dict_Workout_Activities.setObject(activitiesToAdd[i], forKey: String(i + 1))
             }
             
-            // add the newly created workout to MyWorkouts dictionary
-            else {
+            // if the workout is already contained in the dictionary, remove it
+            if (contains(workoutNames, workoutToAdd)) {
                 
-                // instantiate the new dictionary
-                var dict_Workout_Activities: NSMutableDictionary = NSMutableDictionary.alloc()
-                
-                // add all the activities to the dictionary
-                for (var i = 0; i < activitiesToAdd.count; ++i) {
-                    
-                     dict_Workout_Activities.setValue(activitiesToAdd[i], forKey: String(i + 1))
-                }
-                
-                // if the workout is already contained in the dictionary, remove it
-                if (contains(workoutNames, workoutToAdd)) {
-                    
-                    // remove the existing workout from MyWorkouts dictionary
-                    applicationDelegate.dict_WorkoutOrderNumber_Dict.removeObjectForKey(workoutToAdd)
-                }
-                
-                // get the current size of the Workout dict from the app delegate
-                var currentSize = applicationDelegate.dict_WorkoutOrderNumber_Dict.count
-                
-                // instantiate the new dictionary ordered by number
-                var dict_WorkoutOrderNum_Dict: NSMutableDictionary = NSMutableDictionary.alloc()
-                
-                // insert the new workout dictionary into ordered workout dictionary
-                dict_WorkoutOrderNum_Dict.setValue(dict_Workout_Activities, forKey: workoutToAdd)
-                
-                //insert the new workout dictionary with the ordered key
-                applicationDelegate.dict_WorkoutOrderNumber_Dict.setValue(dict_WorkoutOrderNum_Dict, forKey: String(currentSize + 1))
-                
-                // unwind to MyWorkoutsTableViewController with the NewWorkout-Save
-                performSegueWithIdentifier("NewWorkout-Save", sender: self)
+                // remove the existing workout from MyWorkouts dictionary
+                applicationDelegate.dict_WorkoutOrderNumber_Dict.removeObjectForKey(workoutToAdd)
             }
+            
+            // get the current size of the Workout dict from the app delegate
+            var currentSize = applicationDelegate.dict_WorkoutOrderNumber_Dict.count
+            
+            // instantiate the new dictionary for workouts ordered by number
+            var dict_WorkoutOrderNum_Dict: NSMutableDictionary = NSMutableDictionary()
+            
+            // insert the new workout dictionary into ordered workout dictionary
+            dict_WorkoutOrderNum_Dict.setValue(dict_Workout_Activities, forKey: String(workoutToAdd))
+            
+            //insert the new workout dictionary with the ordered key
+            applicationDelegate.dict_WorkoutOrderNumber_Dict.setValue(dict_WorkoutOrderNum_Dict, forKey: String(currentSize + 1))
+            
+            // unwind to MyWorkoutsTableViewController with the NewWorkout-Save
+            performSegueWithIdentifier("NewWorkout-Save", sender: self)
         }
     }
     
